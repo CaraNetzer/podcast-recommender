@@ -5,7 +5,6 @@ import { Host } from "./Host"
 import { useNavigate } from "react-router-dom"
 import "./Homepage.css"
 
-
 export const Homepage = () => {
     const [favoriteShows, setFavoriteShows] = useState([])
     const [favoriteHosts, setFavoriteHosts] = useState([])
@@ -48,7 +47,7 @@ export const Homepage = () => {
             <article className="shows">
 
                 {
-                    favoriteShows.map(show => <Show key={`show--${show.id}`} show={show} />)
+                    favoriteShows.map(show => <Show key={`show--${show.id}`} show={show} setFavoriteShows={setFavoriteShows} />)
                 }
             </article>
         </article>
@@ -68,7 +67,7 @@ export const Homepage = () => {
             <article className="toListenShows">
 
                 {
-                    toListen.map(show => <ToListenShow key={`show--${show.id}`} show={show} />)
+                    toListen.map(show => <ToListenShow key={`show--${show.id}`} show={show} setFavoriteShows={setFavoriteShows}/>)
                 }
             </article>
         </article>

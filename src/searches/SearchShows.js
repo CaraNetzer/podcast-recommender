@@ -3,12 +3,11 @@ import "./Search.css"
 import { Link, useNavigate } from "react-router-dom"
 
 
-export const SearchShows = ({ setSelectedShow }) => {
+export const SearchShows = () => {
 
     const [access_token, setToken] = useState("")
 
     const CLIENT_ID = "7ff6460da12d4c34b09842ed9289e756"
-    /* const CLIENT_SECRET = "640cb593dd374f0c8ff08948cba84b3a" */
     const REDIRECT_URI = "http://localhost:3000/searchShows"
     const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize"
     const RESPONSE_TYPE = "token"
