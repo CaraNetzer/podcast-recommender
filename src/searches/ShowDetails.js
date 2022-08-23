@@ -6,6 +6,7 @@ export const ShowDetails = () => {
     const { showId } = useParams()
     const [selectedShow, setShow] = useState()
     const [favoriteShows, setFavoriteShows] = useState([])
+    const [toListenShows, setToListenShows] = useState([])
 
 
     const localUser = localStorage.getItem("app_user")
@@ -43,6 +44,12 @@ export const ShowDetails = () => {
             },
             body: JSON.stringify(newFavorite)
         })
+        .then(() => fetch('http://localhost:8088/shows?statusId=1')
+        .then(response => response.json())
+        .then(shows => {
+            setFavoriteShows(shows)
+        }))
+        
     }
 
     const addToListen = () => {
@@ -61,10 +68,10 @@ export const ShowDetails = () => {
             body: JSON.stringify(newToListen)
         })
             .then(response => response.json())
-            .then(() => fetch('http://localhost:8088/shows?statusId=1')
+            .then(() => fetch('http://localhost:8088/shows?statusId=2')
             .then(response => response.json())
             .then(shows => {
-                setFavoriteShows(shows)
+                setToListenShows(shows)
             }))
     }
 
@@ -86,27 +93,37 @@ export const ShowDetails = () => {
 
     }
 
-    useEffect(
-        () => {
-            fetch('http://localhost:8088/shows?statusId=1')
-                .then(response => response.json())
-                .then(shows => {
-                    setFavoriteShows(shows)
-                })
-        }, [])
-
-        console.log(favoriteShows)
-        console.log(selectedShow)
         console.log(favoriteShows.find(show => show.name === selectedShow?.name))
 
+
+    const addToFavoritesButton = () => {
+        if(favoriteShows.find(show => show.name === selectedShow?.name) == undefined) {
+            return true 
+        } else {
+            return false
+        }
+    }
+    const addToListenButton = () => {
+        if(toListenShows.find(show => show.name === selectedShow?.name) == undefined) {
+            return true 
+        } else {
+            return false
+        }
+    }
 
     return <div className="show" key={selectedShow?.id}>
         <h1 className='link'>{selectedShow?.name}</h1>
         {selectedShow?.images.length ? <img width="10%" src={selectedShow?.images[0].url} alt="" /> : <div>No Image</div>}
-        {favoriteShows.find(show => show.name === selectedShow?.name) != undefined 
-            ? "" 
-            : <button onClick={() => addToFavorites()}>Add To Favorites</button>}
-        <button onClick={() => addToListen()}>+ To Listen</button>
+        
+        {addToFavoritesButton()
+            ? <button onClick={() => addToFavorites()}>Add To Favorites</button>
+            : ""
+        }
+        {addToListenButton()
+            ? <button onClick={() => addToListen()}>+ To Listen</button>
+            : ""
+        }
+
         <p><b>Description</b>: {selectedShow?.description}</p>
         <p><b>Host</b>: {selectedShow?.publisher}</p>
         <button onClick={() => addToFavoriteHosts()}>Add To Favorite Hosts</button>

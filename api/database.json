@@ -60,6 +60,38 @@
       "statusId": 1,
       "spotifyShowId": "0Vdp4gyQoY0kkcvaLnIgvx",
       "id": 11
+    },
+    {
+      "userId": 1,
+      "name": "Poog with Kate Berlant and Jacqueline Novak",
+      "img": "https://i.scdn.co/image/ab6765630000ba8a2aeeded35d3d751dd8ba9aa3",
+      "statusId": 1,
+      "spotifyShowId": "0aF9EB1e73SmmWIrvC4I61",
+      "id": 12
+    },
+    {
+      "userId": 1,
+      "name": "Normal Gossip",
+      "img": "https://i.scdn.co/image/ab6765630000ba8a6dce46602cbfb7f5374b413f",
+      "statusId": 1,
+      "spotifyShowId": "0KVZ16mLZ1bbNlnKemYTzm",
+      "id": 13
+    },
+    {
+      "userId": 1,
+      "name": "Maintenance Phase",
+      "img": "https://i.scdn.co/image/ab6765630000ba8a7f390517e3be0df1bb707a67",
+      "statusId": 1,
+      "spotifyShowId": "3rDR8CfpIEMpITG2UC3w5W",
+      "id": 14
+    },
+    {
+      "userId": 1,
+      "name": "Mother Country Radicals",
+      "img": "https://i.scdn.co/image/ab6765630000ba8ac680238d2f0c48180b47e75a",
+      "statusId": 2,
+      "spotifyShowId": "1k8LpYwJ71vMu0mLxG2Am8",
+      "id": 15
     }
   ],
   "favoriteShowHosts": [

@@ -67,7 +67,7 @@ export const Homepage = () => {
             <article className="toListenShows">
 
                 {
-                    toListen.map(show => <ToListenShow key={`show--${show.id}`} show={show} setFavoriteShows={setFavoriteShows}/>)
+                    toListen.map(show => <ToListenShow key={`show--${show.id}`} show={show} setFavoriteShows={setFavoriteShows} setToListen={setToListen}/>)
                 }
             </article>
         </article>

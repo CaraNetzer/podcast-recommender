@@ -1,7 +1,7 @@
 import "./Homepage.css"
 import { addToFavorites } from "../apiManager"
 
-export const ToListenShow = ({ show, setFavoriteShows }) => {
+export const ToListenShow = ({ show, setToListen, setFavoriteShows }) => {
     const localUser = localStorage.getItem("app_user")
     const userObject = JSON.parse(localUser)
 
@@ -9,7 +9,14 @@ export const ToListenShow = ({ show, setFavoriteShows }) => {
         console.log("do nothing for now")
     }
     const handleDelete = (show) => {
-        console.log("do nothing for now")
+        fetch(`http://localhost:8088/shows/${show.id}`, {
+            method: "DELETE"
+        })
+        .then(() => fetch('http://localhost:8088/shows?statusId=2'))
+            .then(response => response.json())
+            .then(shows => {
+                setToListen(shows)
+            })
     }
 
     const addToFavorites = () => {
@@ -35,7 +42,12 @@ export const ToListenShow = ({ show, setFavoriteShows }) => {
                     })
                 }}
             ))
-            .then(() => fetch('http://localhost:8088/shows'))
+            .then(() => fetch('http://localhost:8088/shows?statusId=2'))
+            .then(response => response.json())
+            .then(shows => {
+                setToListen(shows)
+            })
+            .then(() => fetch('http://localhost:8088/shows?statusId=1'))
             .then(response => response.json())
             .then(shows => {
                 setFavoriteShows(shows)
