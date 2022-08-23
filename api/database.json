@@ -16,14 +16,6 @@
       "spotifyShowId": "4dvc06zTAaAylzdTrsgKzp"
     },
     {
-      "id": 2,
-      "name": "My Year in Mensa",
-      "img": "https://i.scdn.co/image/ab6765630000ba8abfdf2c74371bb00c9c400ec7",
-      "userId": 1,
-      "statusId": 2,
-      "spotifyShowId": "0HOAQQu2JglNvaTQXsCyC1"
-    },
-    {
       "id": 3,
       "name": "Example Podcast #1",
       "img": "",
@@ -87,11 +79,33 @@
     },
     {
       "userId": 1,
+      "name": "My Year in Mensa",
+      "img": "https://i.scdn.co/image/ab6765630000ba8a0e560027a6a611fc626e503b",
+      "statusId": 2,
+      "spotifyShowId": "0HOAQQu2JglNvaTQXsCyC1",
+      "id": 15
+    },
+    {
+      "userId": 1,
+      "name": "Behind the Bastards",
+      "img": "https://i.scdn.co/image/ab6765630000ba8a8ee11047ddaf525ef29b172e",
+      "statusId": 2,
+      "spotifyShowId": "0rOatMqaG3wB5BF4AdsrSX",
+      "id": 16
+    },
+    {
+      "userId": 1,
       "name": "Mother Country Radicals",
       "img": "https://i.scdn.co/image/ab6765630000ba8ac680238d2f0c48180b47e75a",
-      "statusId": 2,
-      "spotifyShowId": "1k8LpYwJ71vMu0mLxG2Am8",
-      "id": 15
+      "statusId": 3,
+      "id": 19
+    },
+    {
+      "userId": 1,
+      "name": "StraightioLab",
+      "img": "https://i.scdn.co/image/ab6765630000ba8a7a269aa660d64474bfcee8fa",
+      "statusId": 3,
+      "id": 20
     }
   ],
   "favoriteShowHosts": [

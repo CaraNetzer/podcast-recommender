@@ -1,18 +1,42 @@
 import "./Homepage.css"
-import { addToFavorites } from "../apiManager"
 
 export const ToListenShow = ({ show, setToListen, setFavoriteShows }) => {
     const localUser = localStorage.getItem("app_user")
     const userObject = JSON.parse(localUser)
 
     const handleArchive = (show) => {
-        console.log("do nothing for now")
+        const newFavorite = {
+            userId: userObject.id,
+            name: show.name,
+            img: show.img,
+            statusId: 3,
+            spotifyShowId: show.showId
+        }
+        fetch('http://localhost:8088/shows', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(newFavorite)
+        })
+            .then(response => response.json()
+                .then(() => {
+                    fetch(`http://localhost:8088/shows/${show.id}`, {
+                        method: "DELETE"
+                    })
+                }
+                ))
+            .then(() => fetch('http://localhost:8088/shows?statusId=2'))
+            .then(response => response.json())
+            .then(shows => {
+                setToListen(shows)
+            })
     }
     const handleDelete = (show) => {
         fetch(`http://localhost:8088/shows/${show.id}`, {
             method: "DELETE"
         })
-        .then(() => fetch('http://localhost:8088/shows?statusId=2'))
+            .then(() => fetch('http://localhost:8088/shows?statusId=2'))
             .then(response => response.json())
             .then(shows => {
                 setToListen(shows)
@@ -35,17 +59,17 @@ export const ToListenShow = ({ show, setToListen, setFavoriteShows }) => {
             body: JSON.stringify(newFavorite)
         })
             .then(response => response.json()
-            .then(() => {
-                if(show.statusId === 2) {
-                    fetch(`http://localhost:8088/shows/${show.id}`,{
+                .then(() => {
+                    fetch(`http://localhost:8088/shows/${show.id}`, {
                         method: "DELETE"
                     })
-                }}
-            ))
+                }
+                ))
             .then(() => fetch('http://localhost:8088/shows?statusId=2'))
             .then(response => response.json())
             .then(shows => {
                 setToListen(shows)
+                console.log(shows)
             })
             .then(() => fetch('http://localhost:8088/shows?statusId=1'))
             .then(response => response.json())

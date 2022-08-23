@@ -1,4 +1,8 @@
 export const Host = ({host}) => {
+
+    const localUser = localStorage.getItem("app_user")
+    const userObject = JSON.parse(localUser)
+    
     const handleArchive = (host) => {
         console.log(host)
     }
