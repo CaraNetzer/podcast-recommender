@@ -1,0 +1,25 @@
+.searchResult {
+    background-color: #c8bcbc;
+    padding: 1em 2em;
+    margin: auto;
+    border-radius: 20px;
+    margin: 2% auto;
+}
+
+.results {
+    background-color: #a79c9c;
+    width: 80%;
+    padding: 1em 2em;
+    margin: 4% auto;
+    border-radius: 20px;
+}
+
+#searchMain {
+    margin: 4% auto;
+    width: 90%;
+}
+
+#searchHeader {
+    display: flex;
+    justify-content: space-between;
+}

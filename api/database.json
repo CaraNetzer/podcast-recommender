@@ -1,0 +1,89 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Cara",
+      "email": "cara.netzer@gmail.com"
+    }
+  ],
+  "shows": [
+    {
+      "id": 1,
+      "name": "Lolita Podcast",
+      "img": "https://i.scdn.co/image/ab6765630000ba8ada2863fbfccab2b5822a846e",
+      "userId": 1,
+      "statusId": 1
+    },
+    {
+      "id": 2,
+      "name": "My Year in Mensa",
+      "img": "https://i.scdn.co/image/ab6765630000ba8abfdf2c74371bb00c9c400ec7",
+      "userId": 1,
+      "statusId": 2
+    },
+    {
+      "id": 3,
+      "name": "Example Podcast #1",
+      "img": "",
+      "userId": 1,
+      "statusId": 3
+    },
+    {
+      "id": 4,
+      "name": "Example Podcast #2",
+      "img": "",
+      "userId": 1,
+      "statusId": 3
+    },
+    {
+      "id": 5,
+      "name": "You're Wrong About",
+      "img": "https://i.scdn.co/image/ab6765630000ba8a557189992ebf2260823e4dff",
+      "userId": 1,
+      "statusId": 1
+    },
+    {
+      "userId": 1,
+      "name": "Scam Goddess",
+      "img": "https://i.scdn.co/image/ab6765630000ba8a9d131cbd7a36fdaa6f7b39e9",
+      "statusId": 1,
+      "id": 8
+    }
+  ],
+  "favoriteShowHosts": [
+    {
+      "id": 1,
+      "hostId": 1,
+      "favoriteShowId": 5,
+      "name": "Sarah Marshall"
+    }
+  ],
+  "favoriteHosts": [
+    {
+      "id": 1,
+      "name": "Jamie Loftus",
+      "userId": 1,
+      "statusId": 1
+    },
+    {
+      "userId": 1,
+      "name": "Earwolf & Laci Mosley",
+      "statusId": 1,
+      "id": 2
+    }
+  ],
+  "status": [
+    {
+      "id": 1,
+      "type": "favorite"
+    },
+    {
+      "id": 2,
+      "type": "to listen"
+    },
+    {
+      "id": 3,
+      "type": "archived"
+    }
+  ]
+}

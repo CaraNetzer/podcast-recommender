@@ -1,0 +1,40 @@
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    width: 100%;
+}
+.wholeNavBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+}
+
+.navbar__item {
+    flex-basis: 20%;
+    list-style-type: none;
+    border: 1px solid aliceblue;
+    border-radius: 30px;
+    padding: 0 3% 0;
+    text-align: center;
+    margin: 0 2%;
+    width: max-content;
+}
+
+.navbar__logout {
+    margin-left: auto;
+    color: #9a9d90;
+}
+
+.navbar-nav {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.active {
+    color: white;
+}
+
+.title {
+    padding: 0 5% 0 0;
+}

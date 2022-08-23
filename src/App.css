@@ -14,7 +14,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #8cb1fc;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -35,4 +35,19 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.searchResult {
+  display: flex;
+  flex-flow: row;
+  padding: 1%;
+}
+
+.results {
+  display: flex;
+  flex-flow: column;
+}
+
+.link {
+  padding: 1%;
 }
