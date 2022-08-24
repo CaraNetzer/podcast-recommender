@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 
 
 export const ShowDetails = () => {
@@ -13,6 +13,8 @@ export const ShowDetails = () => {
     const userObject = JSON.parse(localUser)
 
     const token = window.localStorage.getItem("token")
+
+    const navigate = useNavigate()
 
     useEffect(
         () => {
@@ -28,7 +30,7 @@ export const ShowDetails = () => {
                 })
         }, [showId]
     )
-    
+
     const addToFavorites = () => {
         const newFavorite = {
             userId: userObject.id,
@@ -44,12 +46,12 @@ export const ShowDetails = () => {
             },
             body: JSON.stringify(newFavorite)
         })
-        .then(() => fetch('http://localhost:8088/shows?statusId=1')
-        .then(response => response.json())
-        .then(shows => {
-            setFavoriteShows(shows)
-        }))
-        
+            .then(() => fetch('http://localhost:8088/shows?statusId=1')
+                .then(response => response.json())
+                .then(shows => {
+                    setFavoriteShows(shows)
+                }))
+
     }
 
     const addToListen = () => {
@@ -69,16 +71,16 @@ export const ShowDetails = () => {
         })
             .then(response => response.json())
             .then(() => fetch('http://localhost:8088/shows?statusId=2')
-            .then(response => response.json())
-            .then(shows => {
-                setToListenShows(shows)
-            }))
+                .then(response => response.json())
+                .then(shows => {
+                    setToListenShows(shows)
+                }))
     }
 
     const addToFavoriteHosts = () => {
         const newFavoriteHost = {
             userId: userObject.id,
-            name: selectedShow.publisher,
+            name: selectedShow.hostName,
             statusId: 1,
             spotifyShowId: showId
         }
@@ -93,39 +95,58 @@ export const ShowDetails = () => {
 
     }
 
-        console.log(favoriteShows.find(show => show.name === selectedShow?.name))
-
-
     const addToFavoritesButton = () => {
-        if(favoriteShows.find(show => show.name === selectedShow?.name) == undefined) {
-            return true 
+        if (favoriteShows.find(show => show.name === selectedShow?.name) == undefined) {
+            return true
         } else {
             return false
         }
     }
     const addToListenButton = () => {
-        if(toListenShows.find(show => show.name === selectedShow?.name) == undefined) {
-            return true 
+        if (toListenShows.find(show => show.name === selectedShow?.name) == undefined) {
+            return true
         } else {
             return false
         }
     }
 
-    return <div className="show" key={selectedShow?.id}>
-        <h1 className='link'>{selectedShow?.name}</h1>
-        {selectedShow?.images.length ? <img width="10%" src={selectedShow?.images[0].url} alt="" /> : <div>No Image</div>}
-        
-        {addToFavoritesButton()
-            ? <button onClick={() => addToFavorites()}>Add To Favorites</button>
-            : ""
-        }
-        {addToListenButton()
-            ? <button onClick={() => addToListen()}>+ To Listen</button>
-            : ""
-        }
+    const [showHostFeild, setShowHostFeild] = useState(false)
+    const showDiv = () => showHostFeild ? setShowHostFeild(false) : setShowHostFeild(true)
+    const HostField = () => {
+        return <div className="host-field">
+            <input type="text"
+                placeholder="Enter one name at a time"
+                value={selectedShow.hostName = ""}
+                onChange={(e) => {
+                    const copy = { ...selectedShow }
+                    copy.hostName = e.target.value
+                    setShow(copy)
+                    }
+                } 
+            />
+            <button onClick={() => addToFavoriteHosts()}>Add To Favorite Hosts</button>
+        </div>
+    }
 
-        <p><b>Description</b>: {selectedShow?.description}</p>
-        <p><b>Host</b>: {selectedShow?.publisher}</p>
-        <button onClick={() => addToFavoriteHosts()}>Add To Favorite Hosts</button>
-    </div>
+    return <>
+        <button onClick={() => navigate("/searchShows")}>Back to Search</button>
+        <div className="show" key={selectedShow?.id}>
+            <h1 className='link'>{selectedShow?.name}</h1>
+            {selectedShow?.images.length ? <img width="10%" src={selectedShow?.images[0].url} alt="" /> : <div>No Image</div>}
+
+            {addToFavoritesButton()
+                ? <button onClick={() => addToFavorites()}>Add To Favorites</button>
+                : ""
+            }
+            {addToListenButton()
+                ? <button onClick={() => addToListen()}>+ To Listen</button>
+                : ""
+            }
+
+            <p><b>Description</b>: {selectedShow?.description}</p>
+            <p><b>Host</b>: {selectedShow?.publisher}</p>
+            <button onClick={() => showDiv()}>Add Hosts</button>
+            { showHostFeild ? <HostField /> : null }
+        </div>
+    </>
 }

@@ -5,33 +5,20 @@ export const ToListenShow = ({ show, setToListen, setFavoriteShows }) => {
     const userObject = JSON.parse(localUser)
 
     const handleArchive = (show) => {
-        const newFavorite = {
-            userId: userObject.id,
-            name: show.name,
-            img: show.img,
-            statusId: 3,
-            spotifyShowId: show.showId
-        }
-        fetch('http://localhost:8088/shows', {
-            method: "POST",
+        fetch(`http://localhost:8088/shows/${show.id}`, {
+            method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(newFavorite)
+            body: JSON.stringify({statusId: 3})
         })
-            .then(response => response.json()
-                .then(() => {
-                    fetch(`http://localhost:8088/shows/${show.id}`, {
-                        method: "DELETE"
-                    })
-                }
-                ))
             .then(() => fetch('http://localhost:8088/shows?statusId=2'))
             .then(response => response.json())
             .then(shows => {
                 setToListen(shows)
             })
     }
+
     const handleDelete = (show) => {
         fetch(`http://localhost:8088/shows/${show.id}`, {
             method: "DELETE"
@@ -44,27 +31,13 @@ export const ToListenShow = ({ show, setToListen, setFavoriteShows }) => {
     }
 
     const addToFavorites = () => {
-        const newFavorite = {
-            userId: userObject.id,
-            name: show.name,
-            img: show.img,
-            statusId: 1,
-            spotifyShowId: show.showId
-        }
-        fetch('http://localhost:8088/shows', {
-            method: "POST",
+        fetch(`http://localhost:8088/shows/${show.id}`, {
+            method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(newFavorite)
+            body: JSON.stringify({statusId: 1})
         })
-            .then(response => response.json()
-                .then(() => {
-                    fetch(`http://localhost:8088/shows/${show.id}`, {
-                        method: "DELETE"
-                    })
-                }
-                ))
             .then(() => fetch('http://localhost:8088/shows?statusId=2'))
             .then(response => response.json())
             .then(shows => {
