@@ -77,6 +77,14 @@
       "statusId": 2,
       "spotifyShowId": "0HOAQQu2JglNvaTQXsCyC1",
       "id": 24
+    },
+    {
+      "userId": 1,
+      "name": "Ghost Church by Jamie Loftus",
+      "img": "https://i.scdn.co/image/ab6765630000ba8a6dade98a7280795aae159ae1",
+      "statusId": 2,
+      "spotifyShowId": "4PG3tdvNRNLkJZy7GkbpGT",
+      "id": 25
     }
   ],
   "favoriteShowHosts": [
@@ -90,17 +98,26 @@
   "favoriteHosts": [
     {
       "userId": 1,
-      "name": "iHeartPodcasts",
+      "name": "Jamie Loftus",
       "statusId": 1,
       "spotifyShowId": "4dvc06zTAaAylzdTrsgKzp",
-      "id": 1
+      "id": 5
     },
     {
       "userId": 1,
-      "name": "Earwolf & Laci Mosley",
+      "name": "Kate Berlant",
       "statusId": 1,
-      "spotifyShowId": "0Vdp4gyQoY0kkcvaLnIgvx",
-      "id": 2
+      "spotifyShowId": "0aF9EB1e73SmmWIrvC4I61",
+      "showName": "Poog with Kate Berlant and Jacqueline Novak",
+      "id": 8
+    },
+    {
+      "userId": 1,
+      "name": "Jacqueline Novak",
+      "statusId": 1,
+      "spotifyShowId": "0aF9EB1e73SmmWIrvC4I61",
+      "showName": "Poog with Kate Berlant and Jacqueline Novak",
+      "id": 10
     }
   ],
   "status": [

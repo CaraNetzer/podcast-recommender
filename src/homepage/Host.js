@@ -15,9 +15,7 @@ export const Host = ({host, setFavoriteHosts}) => {
     }
 
     return <div className="hostItem">
-        <div>
-            <h3 className="showhost">{host.name}</h3>
+            <h4 className="showhost">{host.name}</h4>
             <button onClick={() => handleDelete(host)}>Delete</button>
-        </div>
     </div>
 }

@@ -3,9 +3,9 @@ import { useNavigate, useParams } from "react-router-dom"
 import "./Search.css"
 
 
-export const ShowDetails = () => {
-    const { showId } = useParams()
-    const [selectedShow, setShow] = useState()
+export const EpisodeDetails = () => {
+    const { episodeId } = useParams()
+    const [selectedEpisode, setEpisode] = useState()
     const [favoriteShows, setFavoriteShows] = useState([])
     const [toListenShows, setToListenShows] = useState([])
     const [host, setHost] = useState("")
@@ -30,7 +30,7 @@ export const ShowDetails = () => {
 
     useEffect(
         () => {
-            fetch(`https://api.spotify.com/v1/shows/${showId}`, {
+            fetch(`https://api.spotify.com/v1/episodes/${episodeId}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -38,18 +38,18 @@ export const ShowDetails = () => {
                 .then(response => response.json())
                 .then(data => {
                     const singleShow = data
-                    setShow(singleShow)
+                    setEpisode(singleShow)
                 })
-        }, [showId]
+        }, [episodeId]
     )
 
     const addToFavorites = () => {
         const newFavorite = {
             userId: userObject.id,
-            name: selectedShow.name,
-            img: selectedShow.images[0].url,
+            name: selectedEpisode.name,
+            img: selectedEpisode.images[0].url,
             statusId: 1,
-            spotifyShowId: showId
+            spotifyShowId: episodeId
         }
         fetch('http://localhost:8088/shows', {
             method: "POST",
@@ -69,10 +69,10 @@ export const ShowDetails = () => {
     const addToListen = () => {
         const newToListen = {
             userId: userObject.id,
-            name: selectedShow.name,
-            img: selectedShow.images[0].url,
+            name: selectedEpisode.name,
+            img: selectedEpisode.images[0].url,
             statusId: 2,
-            spotifyShowId: showId
+            spotifyShowId: episodeId
         }
         fetch('http://localhost:8088/shows', {
             method: "POST",
@@ -94,8 +94,8 @@ export const ShowDetails = () => {
             userId: userObject.id,
             name: host,
             statusId: 1,
-            spotifyShowId: showId,
-            showName: selectedShow.name
+            spotifyShowId: episodeId,
+            showName: selectedEpisode.name
         }
         fetch('http://localhost:8088/favoriteHosts', {
             method: "POST",
@@ -112,14 +112,14 @@ export const ShowDetails = () => {
     }
 
     const addToFavoritesButton = () => {
-        if (favoriteShows.find(show => show.name === selectedShow?.name) == undefined) {
+        if (favoriteShows.find(show => show.name === selectedEpisode?.name) == undefined) {
             return true
         } else {
             return false
         }
     }
     const addToListenButton = () => {
-        if (toListenShows.find(show => show.name === selectedShow?.name) == undefined) {
+        if (toListenShows.find(show => show.name === selectedEpisode?.name) == undefined) {
             return true
         } else {
             return false
@@ -140,7 +140,7 @@ export const ShowDetails = () => {
     }
 
     const DisplayFavoriteHosts = () => {
-        const favHostsFromThisShow = favoriteHosts.filter(host => host.showName == selectedShow?.name)
+        const favHostsFromThisShow = favoriteHosts.filter(host => host.showName == selectedEpisode?.name)
         return favHostsFromThisShow.map(host =>
             <div className="host">⭐{host.name}</div>
         )
@@ -148,9 +148,10 @@ export const ShowDetails = () => {
 
     return <>
         <button onClick={() => navigate("/searchShows")}>Back to Search</button>
-        <div className="show" key={selectedShow?.id}>
-            <h1 className='link'>{selectedShow?.name}</h1>
-            {selectedShow?.images.length ? <img width="10%" src={selectedShow?.images[0].url} alt="" /> : <div>No Image</div>}
+        <div className="show" key={selectedEpisode?.id}>
+            <h1 className='link'>Show Name</h1>
+            <h2>Episode Title: {selectedEpisode?.name}</h2>
+            {selectedEpisode?.images.length ? <img width="10%" src={selectedEpisode?.images[0].url} alt="" /> : <div>No Image</div>}
 
             {addToFavoritesButton()
                 ? <button onClick={() => addToFavorites()}>Add To Favorites</button>
@@ -161,13 +162,12 @@ export const ShowDetails = () => {
                 : ""
             }
 
-            <p><b>Description</b>: {selectedShow?.description}</p>
-            <p><b>Host</b>: {selectedShow?.publisher}</p>
+            <p><b>Episode Description</b>: {selectedEpisode?.description}</p>
+            <p><b>Host</b>: {selectedEpisode?.publisher}</p>
             <button onClick={() => showDiv()}>Add Hosts</button>
             {showHostFeild ? <HostField /> : null}
             <div className="hosts">
-
-                {favoriteHosts.find(host => host.showName === selectedShow?.name) != undefined
+                {favoriteHosts.find(host => host.showName === selectedEpisode?.name) != undefined
                     ? <DisplayFavoriteHosts />
                     : ""
                 }

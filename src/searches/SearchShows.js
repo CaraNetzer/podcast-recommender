@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import "./Search.css"
-import { Link, useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 
 export const SearchShows = () => {
@@ -146,7 +146,7 @@ export const SearchShows = () => {
 
                 {access_token
                     ? <form onSubmit={(e) => search(e)}>
-                        <input placeholder="Search for a topic or show" type="text" onChange={event => setSearchTerm(event.target.value)} />
+                        <input size={40} placeholder="Search for a topic or show" type="text" onChange={event => setSearchTerm(event.target.value)} />
                         <button type="submit">Search</button>
                     </form>
                     : <h2>Please log in</h2>

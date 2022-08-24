@@ -4,6 +4,7 @@ import { Route, Routes, Outlet } from "react-router-dom"
 import "../homepage/Homepage.css"
 import { SearchShows } from "../searches/SearchShows.js"
 import { ShowDetails } from "../searches/ShowDetails.js"
+import { EpisodeDetails } from "../searches/EpisodeDetails.js"
 import { Archive } from "../archive/Archive.js"
 
 
@@ -24,6 +25,7 @@ export const ApplicationViews = () => {
             <Route path="searchShows" element={<SearchShows />} />
             <Route path="searchHosts" element={<SearchHosts />} />
             <Route path="showDetails/:showId" element={<ShowDetails />} />
+            <Route path="episodeDetails/:episodeId" element={<EpisodeDetails />} />
             <Route path="archive" element={<Archive />} />
         </Routes>
     </>

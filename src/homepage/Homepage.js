@@ -54,8 +54,7 @@ export const Homepage = () => {
 
         <article className="favoriteHosts">
             <h2>Favorite Hosts</h2>
-            <article className="hosts">
-
+            <article className="favHostItems">
                 {
                     favoriteHosts.map(host => <Host key={`host--${host.id}`} host={host} setFavoriteHosts={setFavoriteHosts} />)
                 }

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import "../homepage/Homepage.css"
+import "./Archive.css"
 
 export const Archive = () => {
     const [archive, setArchive] = useState([])
@@ -25,8 +25,6 @@ export const Archive = () => {
             })
     }
     
-    
-
     return <>
         <article className="archive">
             <h2>Archived Shows</h2>
