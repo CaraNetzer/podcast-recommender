@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useNavigate, useParams } from "react-router-dom"
+import { useNavigate, useParams, Link } from "react-router-dom"
 import "./Search.css"
 
 
@@ -95,7 +95,7 @@ export const EpisodeDetails = () => {
             name: host,
             statusId: 1,
             spotifyShowId: episodeId,
-            showName: selectedEpisode.name
+            showName: selectedEpisode.show.name
         }
         fetch('http://localhost:8088/favoriteHosts', {
             method: "POST",
@@ -140,7 +140,7 @@ export const EpisodeDetails = () => {
     }
 
     const DisplayFavoriteHosts = () => {
-        const favHostsFromThisShow = favoriteHosts.filter(host => host.showName == selectedEpisode?.name)
+        const favHostsFromThisShow = favoriteHosts.filter(host => host.showName == selectedEpisode?.show?.name)
         return favHostsFromThisShow.map(host =>
             <div className="host">⭐{host.name}</div>
         )
@@ -149,25 +149,20 @@ export const EpisodeDetails = () => {
     return <>
         <button onClick={() => navigate("/searchShows")}>Back to Search</button>
         <div className="show" key={selectedEpisode?.id}>
-            <h1 className='link'>Show Name</h1>
-            <h2>Episode Title: {selectedEpisode?.name}</h2>
+            <h1><Link to={`/showDetails/${selectedEpisode?.show.id}`}>{selectedEpisode?.show.name}</Link></h1>
+            <h2>Episode: {selectedEpisode?.name}</h2>
             {selectedEpisode?.images.length ? <img width="10%" src={selectedEpisode?.images[0].url} alt="" /> : <div>No Image</div>}
-
-            {addToFavoritesButton()
-                ? <button onClick={() => addToFavorites()}>Add To Favorites</button>
-                : ""
-            }
+            
             {addToListenButton()
                 ? <button onClick={() => addToListen()}>+ To Listen</button>
                 : ""
             }
 
             <p><b>Episode Description</b>: {selectedEpisode?.description}</p>
-            <p><b>Host</b>: {selectedEpisode?.publisher}</p>
             <button onClick={() => showDiv()}>Add Hosts</button>
             {showHostFeild ? <HostField /> : null}
             <div className="hosts">
-                {favoriteHosts.find(host => host.showName === selectedEpisode?.name) != undefined
+                {favoriteHosts.find(host => host.showName === selectedEpisode?.show?.name) != undefined
                     ? <DisplayFavoriteHosts />
                     : ""
                 }

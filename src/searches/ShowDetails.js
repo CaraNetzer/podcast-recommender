@@ -162,7 +162,7 @@ export const ShowDetails = () => {
             }
 
             <p><b>Description</b>: {selectedShow?.description}</p>
-            <p><b>Host</b>: {selectedShow?.publisher}</p>
+            <p><b>Number of Episodes</b>: {selectedShow?.total_episodes}</p>
             <button onClick={() => showDiv()}>Add Hosts</button>
             {showHostFeild ? <HostField /> : null}
             <div className="hosts">

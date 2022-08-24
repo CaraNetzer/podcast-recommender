@@ -85,6 +85,22 @@
       "statusId": 2,
       "spotifyShowId": "4PG3tdvNRNLkJZy7GkbpGT",
       "id": 25
+    },
+    {
+      "userId": 1,
+      "name": "\"The 2000's\" w/ Matt Rogers and Bowen Yang",
+      "img": "https://i.scdn.co/image/ab6765630000ba8ab0b0a62fc37b3f4e1b19b3db",
+      "statusId": 2,
+      "spotifyShowId": "40pwxhYoVnwSGJ9TpCtZ1n",
+      "id": 26
+    },
+    {
+      "userId": 1,
+      "name": "The Scarsdale Diet Murder feat. Sarah Marshall",
+      "img": "https://i.scdn.co/image/ab6765630000ba8a7f390517e3be0df1bb707a67",
+      "statusId": 2,
+      "spotifyShowId": "4T5yTKxqYRqkO9BfscXB0c",
+      "id": 27
     }
   ],
   "favoriteShowHosts": [
@@ -98,26 +114,11 @@
   "favoriteHosts": [
     {
       "userId": 1,
-      "name": "Jamie Loftus",
+      "name": "Sarah Marshall",
       "statusId": 1,
-      "spotifyShowId": "4dvc06zTAaAylzdTrsgKzp",
-      "id": 5
-    },
-    {
-      "userId": 1,
-      "name": "Kate Berlant",
-      "statusId": 1,
-      "spotifyShowId": "0aF9EB1e73SmmWIrvC4I61",
-      "showName": "Poog with Kate Berlant and Jacqueline Novak",
-      "id": 8
-    },
-    {
-      "userId": 1,
-      "name": "Jacqueline Novak",
-      "statusId": 1,
-      "spotifyShowId": "0aF9EB1e73SmmWIrvC4I61",
-      "showName": "Poog with Kate Berlant and Jacqueline Novak",
-      "id": 10
+      "spotifyShowId": "1RefFgQB4Lrl7qczcTWA3o",
+      "showName": "You're Wrong About",
+      "id": 1
     }
   ],
   "status": [
