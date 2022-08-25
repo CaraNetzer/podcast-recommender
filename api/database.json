@@ -80,27 +80,45 @@
     },
     {
       "userId": 1,
-      "name": "Ghost Church by Jamie Loftus",
-      "img": "https://i.scdn.co/image/ab6765630000ba8a6dade98a7280795aae159ae1",
+      "name": "A Woman's Smile with Patti Harrison and Lorelei Ramirez",
+      "img": "https://i.scdn.co/image/ab6765630000ba8a0a90d6a14e2bd83e3bafd7e5",
+      "statusId": 1,
+      "spotifyShowId": "60yZiznL2kNwoDJcGKqczq",
+      "id": 29
+    },
+    {
+      "userId": 1,
+      "name": "Unsolicited: Fatties Talk Back",
+      "img": "https://i.scdn.co/image/ab6765630000ba8aae6dde05994cbf70d00e31ca",
+      "statusId": 1,
+      "spotifyShowId": "0bxgpKsCXpiXpHwnY2lSvZ",
+      "id": 30
+    },
+    {
+      "userId": 1,
+      "name": "\"This Meeting Is Being Recorded\" (w/ Patti Harrison)",
+      "img": "https://i.scdn.co/image/ab6765630000ba8a2c4f54931749f8477cbfcba7",
       "statusId": 2,
-      "spotifyShowId": "4PG3tdvNRNLkJZy7GkbpGT",
-      "id": 25
+      "spotifyShowId": "7ARINaz7N2ji2Q97MLjnCJ",
+      "id": 31
     },
     {
       "userId": 1,
       "name": "\"The 2000's\" w/ Matt Rogers and Bowen Yang",
       "img": "https://i.scdn.co/image/ab6765630000ba8ab0b0a62fc37b3f4e1b19b3db",
       "statusId": 2,
-      "spotifyShowId": "40pwxhYoVnwSGJ9TpCtZ1n",
-      "id": 26
+      "spotifyShowId": "4JwmzfCAD22229A7GJ81j1",
+      "spotifyEpisodeId": "40pwxhYoVnwSGJ9TpCtZ1n",
+      "id": 32
     },
     {
       "userId": 1,
       "name": "The Scarsdale Diet Murder feat. Sarah Marshall",
       "img": "https://i.scdn.co/image/ab6765630000ba8a7f390517e3be0df1bb707a67",
       "statusId": 2,
-      "spotifyShowId": "4T5yTKxqYRqkO9BfscXB0c",
-      "id": 27
+      "spotifyShowId": "3rDR8CfpIEMpITG2UC3w5W",
+      "spotifyEpisodeId": "4T5yTKxqYRqkO9BfscXB0c",
+      "id": 34
     }
   ],
   "favoriteShowHosts": [
@@ -119,6 +137,14 @@
       "spotifyShowId": "1RefFgQB4Lrl7qczcTWA3o",
       "showName": "You're Wrong About",
       "id": 1
+    },
+    {
+      "userId": 1,
+      "name": "Patti Harrison",
+      "statusId": 1,
+      "spotifyShowId": "60yZiznL2kNwoDJcGKqczq",
+      "showName": "A Woman's Smile with Patti Harrison and Lorelei Ramirez",
+      "id": 3
     }
   ],
   "status": [

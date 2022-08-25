@@ -14,9 +14,9 @@ export const NavBar = () => {
                 <div className="navbar-nav">
                     <Link className="nav-item nav-link" to="/">Home<span className="sr-only">(current)</span></Link>
                     <span className="nav-item nav-link">|</span>
-                    <Link className="nav-item nav-link" to="/searchShows">Search By Show</Link>
+                    <Link className="nav-item nav-link" to="/searchShows">Search</Link>
                     <span className="nav-item nav-link">|</span>
-                    <Link className="nav-item nav-link" to="/searchHosts">Search By Host</Link>
+                    <Link className="nav-item nav-link" to="/recommender">Recommender</Link>
                     <span className="nav-item nav-link">|</span>
                     <Link className="nav-item nav-link" to="/archive">Archive</Link>
                 </div>

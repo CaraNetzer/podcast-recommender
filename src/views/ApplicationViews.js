@@ -1,5 +1,5 @@
 import { Homepage } from "../homepage/Homepage.js"
-import { SearchHosts } from "../searches/SearchHosts.js"
+import { Recommender } from "../recommender/Recommender.js"
 import { Route, Routes, Outlet } from "react-router-dom"
 import "../homepage/Homepage.css"
 import { SearchShows } from "../searches/SearchShows.js"
@@ -23,7 +23,7 @@ export const ApplicationViews = () => {
             }>
             </Route>
             <Route path="searchShows" element={<SearchShows />} />
-            <Route path="searchHosts" element={<SearchHosts />} />
+            <Route path="recommender" element={<Recommender />} />
             <Route path="showDetails/:showId" element={<ShowDetails />} />
             <Route path="episodeDetails/:episodeId" element={<EpisodeDetails />} />
             <Route path="archive" element={<Archive />} />

@@ -1,4 +1,5 @@
 import "./Homepage.css"
+import { Link } from "react-router-dom"
 
 export const ToListenShow = ({ show, setToListen, setFavoriteShows }) => {
     const localUser = localStorage.getItem("app_user")
@@ -54,7 +55,7 @@ export const ToListenShow = ({ show, setToListen, setFavoriteShows }) => {
     return <div className="showItem">
         <img src={show.img} alt="show logo thumbnail" className="image item" />
         <div className="textContent">
-            <h3 className="showName item">{show.name}</h3>
+        <Link to={`/showDetails/${show.spotifyShowId}`}><h3 className="showName item">{show.name}</h3></Link>
             <button onClick={() => addToFavorites()}>Add To Favorites</button>
             <button onClick={() => handleArchive(show)}>Archive</button>
             <button onClick={() => handleDelete(show)}>Delete</button>

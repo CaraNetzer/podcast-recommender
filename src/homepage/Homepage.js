@@ -2,13 +2,16 @@ import { useEffect, useState } from "react"
 import { Show } from "./Show"
 import { ToListenShow } from "./ToListenShow"
 import { Host } from "./Host"
+import { HostsContainer } from "./HostsContainer"
 import { useNavigate } from "react-router-dom"
 import "./Homepage.css"
+import { Recommender } from "../recommender/Recommender"
 
-export const Homepage = () => {
+export const Homepage = ({ getRecommendationsButton }) => {
     const [favoriteShows, setFavoriteShows] = useState([])
     const [favoriteHosts, setFavoriteHosts] = useState([])
     const [toListen, setToListen] = useState([])
+    let selectedHosts = []
 
     const localUser = localStorage.getItem("app_user")
     const localUserObject = JSON.parse(localUser)
@@ -56,9 +59,12 @@ export const Homepage = () => {
             <h2>Favorite Hosts</h2>
             <article className="favHostItems">
                 {
-                    favoriteHosts.map(host => <Host key={`host--${host.id}`} host={host} setFavoriteHosts={setFavoriteHosts} />)
+                    favoriteHosts.map(host => <Host key={`host--${host.id}`} host={host} selectedHosts={selectedHosts} setFavoriteHosts={setFavoriteHosts} favoriteHosts={favoriteHosts} />)
                 }
             </article>
+            {getRecommendationsButton 
+                ? <button onClick={() => console.log("getRecommendations()")}>Get Recommendations</button> 
+                : null}
         </article>
 
         <article className="toListen">

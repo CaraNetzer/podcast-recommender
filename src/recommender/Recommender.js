@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
-import "./Search.css"
+import "./Recommender.css"
 import { Link } from "react-router-dom"
 
-export const SearchHosts = () => {
+export const Recommender = () => {
     const [access_token, setToken] = useState("")
 
     const CLIENT_ID = "7ff6460da12d4c34b09842ed9289e756"

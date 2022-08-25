@@ -34,138 +34,120 @@ export const SearchShows = () => {
 
     const [searchTerm, setSearchTerm] = useState("")
     const [shows, setShows] = useState([])
-    const [episodes, setEpisodes] = useState([])
-    const [foundShows, setFoundShows] = useState([])
-    const [foundEpisodes, setFoundEpisodes] = useState([])
+    const [sortedEpisodes, setSortedEpisodes] = useState([])
 
-
-    //axios syntax for reference
-    /* const searchArtists = async (e) => {
-      e.preventDefault()
-      const {data} = await axios.get("https://api.spotify.com/v1/search", {
-          headers: {
-              Authorization: `Bearer ${access_token}`
-          },
-          params: {
-              q: searchTerm,
-              type: "show"
-          }
-      })
-      console.log(data)
-      setShows(data.shows.items)
-    } */
-
-    const searchShowsUrl = new URL("https://api.spotify.com/v1/search")
-    const searchShowParams = {
-        q: searchTerm,
-        type: "show"
-    }
-    searchShowsUrl.search = new URLSearchParams(searchShowParams).toString();
-
-    const searchEpisodesUrl = new URL("https://api.spotify.com/v1/search")
-    const searchEpisodeParams = {
-        q: searchTerm,
-        type: "episode"
-    }
-    searchEpisodesUrl.search = new URLSearchParams(searchEpisodeParams).toString();
-
-    const searchShows = async (e) => {
-        e.preventDefault()
-        fetch(searchShowsUrl, {
-            headers: {
-                Authorization: `Bearer ${access_token}`
-            }
-        })
-            .then(r => r.json())
-            .then(data => {
-                console.log(data.shows.items)
-                setShows(data.shows.items.slice(0, 3))
-                setFoundShows(data.shows.items)
-            })
-    }
-    const searchEpisodes = async (e) => {
-        e.preventDefault()
-        fetch(searchEpisodesUrl, {
-            headers: {
-                Authorization: `Bearer ${access_token}`
-            }
-        })
-            .then(r => r.json())
-            .then(data => {
-                setEpisodes(data.episodes.items.slice(0, 3))
-                setFoundEpisodes(data.episodes.items)
-            })
-    }
-
-    const search = (e) => {
-        searchEpisodes(e)
-        searchShows(e)
+    const sortByDate = (unsortedEpisodes) => {
+        const sortComplete =  unsortedEpisodes.sort((a, b) => (a?.release_date > b?.release_date) ? -1 : 1)
+        return sortComplete
     }
 
 
-    //when episodes are found, make a list of their ids, and do a get request for that list of episodes to
-    //access their show names
-    /* useEffect(() => {
-        let foundEpisodeIds = []
-        foundShows.forEach(episode => foundEpisodeIds.push(episode.id))
-        console.log(foundEpisodeIds)
+//axios syntax for reference
+/* const searchArtists = async (e) => {
+  e.preventDefault()
+  const {data} = await axios.get("https://api.spotify.com/v1/search", {
+      headers: {
+          Authorization: `Bearer ${access_token}`
+      },
+      params: {
+          q: searchTerm,
+          type: "show"
+      }
+  })
+  console.log(data)
+  setShows(data.shows.items)
+} */
 
-        const episodeUrl = new URL("https://api.spotify.com/v1/episodes")
-        const episodeParams = {
-            q: foundEpisodeIds[0]
+const searchShowsUrl = new URL("https://api.spotify.com/v1/search")
+const searchShowParams = {
+    q: searchTerm,
+    type: "show"
+}
+searchShowsUrl.search = new URLSearchParams(searchShowParams).toString();
+
+const searchEpisodesUrl = new URL("https://api.spotify.com/v1/search")
+const searchEpisodeParams = {
+    q: searchTerm,
+    type: "episode"
+}
+searchEpisodesUrl.search = new URLSearchParams(searchEpisodeParams).toString();
+
+const searchShows = async (e) => {
+    e.preventDefault()
+    fetch(searchShowsUrl, {
+        headers: {
+            Authorization: `Bearer ${access_token}`
         }
-        episodeUrl.search = new URLSearchParams(episodeParams).toString();
-
-        fetch(`https://api.spotify.com/v1/episodes/${foundEpisodeIds[0]}`, {
+    })
+        .then(r => r.json())
+        .then(data => {
+            setShows(data.shows.items.slice(0, 3))
+            console.log(shows)
         })
-            .then()
-    }, [episodes]) */
+}
+const searchEpisodes = async (e) => {
+    e.preventDefault()
+    fetch(searchEpisodesUrl, {
+        headers: {
+            Authorization: `Bearer ${access_token}`
+        }
+    })
+        .then(r => r.json())
+        .then(data => {
+            setSortedEpisodes(sortByDate(data.episodes.items.slice(0, 10)))
+            console.log(sortedEpisodes)
+        })
+}
 
-    const renderShows = () => {
-        return shows.map(show => (
-            <div className="searchResult" key={show.id}>
-                {show.images.length ? <img width="10%" src={show.images[0].url} alt="" /> : <div>No Image</div>}
-                <div className='link'><Link to={`/showDetails/${show.id}`}>{show.name}</Link></div>
-            </div>
-        ))
-    }
-    const renderEpisodes = () => {
-        return episodes.map(episode => (
-            <div className="searchResult" key={episode.id}>
-                {episode.images.length ? <img width="10%" src={episode.images[0].url} alt="" /> : <div>No Image</div>}
-                <div className='link'><Link to={`/episodeDetails/${episode.id}`}>{episode.name}</Link></div>
-                <div className='showName'>{episode.name}</div>
-            </div>
-        ))
-    }
+const search = (e) => {
+    searchEpisodes(e)
+    searchShows(e)
+}
 
-    return (
-        <div id="searchMain">
-
-            <div id="searchHeader">
-
-                {access_token
-                    ? <form onSubmit={(e) => search(e)}>
-                        <input size={40} placeholder="Search for a topic or show" type="text" onChange={event => setSearchTerm(event.target.value)} />
-                        <button type="submit">Search</button>
-                    </form>
-                    : <h2>Please log in</h2>
-                }
-                {
-                    !access_token
-                        ? <a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}>Login to Spotify</a>
-                        : <button onClick={logout}>Logout of Spotify</button>
-                }
-            </div>
-
-            <div className='results'>
-                <h4>Results: Shows</h4>
-                {renderShows()}
-            </div>
-            <div className='results'>
-                <h4>Results: Episodes</h4>
-                {renderEpisodes()}
-            </div>
+const renderShows = () => {
+    return shows.map(show => (
+        <div className="searchResult" key={show.id}>
+            {show.images.length ? <img width="10%" src={show.images[0].url} alt="" /> : <div>No Image</div>}
+            <div className='link'><Link to={`/showDetails/${show.id}`}>{show.name}</Link></div>
         </div>
-    )
+    ))
+}
+const renderEpisodes = () => {
+    return sortedEpisodes.map(episode => (
+        <div className="searchResult" key={episode.id}>
+            {episode.images.length ? <img width="10%" src={episode.images[0].url} alt="" /> : <div>No Image</div>}
+            <div className='link'><Link to={`/episodeDetails/${episode.id}`}>{episode.name}</Link></div>
+        </div>
+    ))
+}
+
+return (
+    <div id="searchMain">
+
+        <div id="searchHeader">
+
+            {access_token
+                ? <form onSubmit={(e) => search(e)}>
+                    <input size={40} placeholder="Search for a topic, show, or person" type="text" onChange={event => setSearchTerm(event.target.value)} />
+                    <button type="submit">Search</button>
+                </form>
+                : <h2>Please log in</h2>
+            }
+            {
+                !access_token
+                    ? <a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}>Login to Spotify</a>
+                    : <button onClick={logout}>Logout of Spotify</button>
+            }
+        </div>
+
+        <div className='results'>
+            <h4>Results: Shows</h4>
+            {renderShows()}
+        </div>
+        <div className='results'>
+            <h4>Results: Episodes</h4>
+            {renderEpisodes()}
+        </div>
+    </div>
+)
 }

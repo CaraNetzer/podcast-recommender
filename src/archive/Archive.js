@@ -30,7 +30,7 @@ export const Archive = () => {
             <h2>Archived Shows</h2>
             <article className="shows">
                 {archive.map(show => 
-                    <div className="showItem">
+                    <div key={show.id} className="showItem">
                         <img src={show.img} alt="show logo thumbnail" className="image item" />
                         <div className="textContent">
                             <h3 className="showName item">{show.name}</h3>

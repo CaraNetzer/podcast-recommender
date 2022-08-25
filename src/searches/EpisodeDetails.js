@@ -39,6 +39,7 @@ export const EpisodeDetails = () => {
                 .then(data => {
                     const singleShow = data
                     setEpisode(singleShow)
+                    console.log(selectedEpisode)
                 })
         }, [episodeId]
     )
@@ -72,7 +73,8 @@ export const EpisodeDetails = () => {
             name: selectedEpisode.name,
             img: selectedEpisode.images[0].url,
             statusId: 2,
-            spotifyShowId: episodeId
+            spotifyShowId: selectedEpisode.show.id,
+            spotifyEpisodeId: selectedEpisode.id
         }
         fetch('http://localhost:8088/shows', {
             method: "POST",
@@ -111,13 +113,6 @@ export const EpisodeDetails = () => {
             .then(hosts => setFavoriteHosts(hosts))
     }
 
-    const addToFavoritesButton = () => {
-        if (favoriteShows.find(show => show.name === selectedEpisode?.name) == undefined) {
-            return true
-        } else {
-            return false
-        }
-    }
     const addToListenButton = () => {
         if (toListenShows.find(show => show.name === selectedEpisode?.name) == undefined) {
             return true

@@ -19,6 +19,14 @@ export const ShowDetails = () => {
                     setFavoriteHosts(hosts)
                 })
         }, [])
+    useEffect(
+        () => {
+            fetch('http://localhost:8088/shows?statusId=2')
+                .then(response => response.json())
+                .then(shows => {
+                    setToListenShows(shows)
+                })
+        }, [])
 
 
     const localUser = localStorage.getItem("app_user")
@@ -133,7 +141,11 @@ export const ShowDetails = () => {
             <input type="text"
                 placeholder="Enter one name at a time"
                 value={host}
-                onChange={(e) => setHost(e.target.value)}
+                onChange={(e) => {
+                    let [change] = [...host]
+                    change = e.target.value
+                    setHost(change)}
+                }
             />
             <button onClick={() => addToFavoriteHosts()}>Add To Favorite Hosts</button>
         </div>
@@ -142,7 +154,13 @@ export const ShowDetails = () => {
     const DisplayFavoriteHosts = () => {
         const favHostsFromThisShow = favoriteHosts.filter(host => host.showName == selectedShow?.name)
         return favHostsFromThisShow.map(host =>
-            <div className="host">⭐{host.name}</div>
+            <div key={host.id} className="host">⭐{host.name}</div>
+        )
+    }
+    const DisplayToListenEpisodes = () => {
+        const toListenEpisodesFromThisShow = toListenShows.filter(show => show.spotifyShowId == selectedShow?.id)
+        return toListenEpisodesFromThisShow.map(show =>
+            <div key={show.id} className="show">⭐{show.name}</div>
         )
     }
 
@@ -163,10 +181,15 @@ export const ShowDetails = () => {
 
             <p><b>Description</b>: {selectedShow?.description}</p>
             <p><b>Number of Episodes</b>: {selectedShow?.total_episodes}</p>
+            <div className="savedEpisodes">
+                {toListenShows.find(show => show.spotifyShowId === selectedShow?.id) != undefined
+                    ? <DisplayToListenEpisodes />
+                    : ""
+                }
+            </div>
             <button onClick={() => showDiv()}>Add Hosts</button>
-            {showHostFeild ? <HostField /> : null}
+            {showHostFeild ? <HostField /> : null}                                     
             <div className="hosts">
-
                 {favoriteHosts.find(host => host.showName === selectedShow?.name) != undefined
                     ? <DisplayFavoriteHosts />
                     : ""
