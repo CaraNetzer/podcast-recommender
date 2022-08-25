@@ -2,16 +2,17 @@ import { useEffect, useState } from "react"
 import { Show } from "./Show"
 import { ToListenShow } from "./ToListenShow"
 import { Host } from "./Host"
-import { HostsContainer } from "./HostsContainer"
 import { useNavigate } from "react-router-dom"
 import "./Homepage.css"
-import { Recommender } from "../recommender/Recommender"
 
-export const Homepage = ({ getRecommendationsButton }) => {
+export const Homepage = () => {
     const [favoriteShows, setFavoriteShows] = useState([])
     const [favoriteHosts, setFavoriteHosts] = useState([])
     const [toListen, setToListen] = useState([])
-    let selectedHosts = []
+    const [selectedHosts, setSelectedHosts] = useState([])
+    let selectedHostsArray = []
+    selectedHosts.forEach(host => selectedHostsArray.push((host.name)))
+    const selectedHostsSearchTerm = selectedHostsArray.join("+")
 
     const localUser = localStorage.getItem("app_user")
     const localUserObject = JSON.parse(localUser)
@@ -59,12 +60,15 @@ export const Homepage = ({ getRecommendationsButton }) => {
             <h2>Favorite Hosts</h2>
             <article className="favHostItems">
                 {
-                    favoriteHosts.map(host => <Host key={`host--${host.id}`} host={host} selectedHosts={selectedHosts} setFavoriteHosts={setFavoriteHosts} favoriteHosts={favoriteHosts} />)
+                    favoriteHosts.map(host => <Host key={`host--${host.id}`} host={host} selectedHosts={selectedHosts} setSelectedHosts={setSelectedHosts} setFavoriteHosts={setFavoriteHosts} favoriteHosts={favoriteHosts} />)
                 }
             </article>
-            {getRecommendationsButton 
-                ? <button onClick={() => console.log("getRecommendations()")}>Get Recommendations</button> 
-                : null}
+
+            {selectedHosts.length >= 2 
+                ? <button onClick={() => navigate(`/recommendations/${selectedHostsSearchTerm}`)}>Get Recommendations</button> 
+                : null
+            }
+
         </article>
 
         <article className="toListen">

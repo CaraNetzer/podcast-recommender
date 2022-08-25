@@ -16,7 +16,7 @@ export const NavBar = () => {
                     <span className="nav-item nav-link">|</span>
                     <Link className="nav-item nav-link" to="/searchShows">Search</Link>
                     <span className="nav-item nav-link">|</span>
-                    <Link className="nav-item nav-link" to="/recommender">Recommender</Link>
+                    <Link className="nav-item nav-link" to="/recommendations">Recommendations</Link>
                     <span className="nav-item nav-link">|</span>
                     <Link className="nav-item nav-link" to="/archive">Archive</Link>
                 </div>

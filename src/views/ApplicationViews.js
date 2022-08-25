@@ -23,7 +23,7 @@ export const ApplicationViews = () => {
             }>
             </Route>
             <Route path="searchShows" element={<SearchShows />} />
-            <Route path="recommender" element={<Recommender />} />
+            <Route path="recommendations/:hosts" element={<Recommender />} />
             <Route path="showDetails/:showId" element={<ShowDetails />} />
             <Route path="episodeDetails/:episodeId" element={<EpisodeDetails />} />
             <Route path="archive" element={<Archive />} />
