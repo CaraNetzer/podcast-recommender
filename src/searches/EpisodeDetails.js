@@ -6,7 +6,6 @@ import "./Search.css"
 export const EpisodeDetails = () => {
     const { episodeId } = useParams()
     const [selectedEpisode, setEpisode] = useState()
-    const [favoriteShows, setFavoriteShows] = useState([])
     const [toListenShows, setToListenShows] = useState([])
     const [host, setHost] = useState("")
     const [favoriteHosts, setFavoriteHosts] = useState([])
@@ -43,29 +42,6 @@ export const EpisodeDetails = () => {
                 })
         }, [episodeId]
     )
-
-    const addToFavorites = () => {
-        const newFavorite = {
-            userId: userObject.id,
-            name: selectedEpisode.name,
-            img: selectedEpisode.images[0].url,
-            statusId: 1,
-            spotifyShowId: episodeId
-        }
-        fetch('http://localhost:8088/shows', {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(newFavorite)
-        })
-            .then(() => fetch('http://localhost:8088/shows?statusId=1')
-                .then(response => response.json())
-                .then(shows => {
-                    setFavoriteShows(shows)
-                }))
-
-    }
 
     const addToListen = () => {
         const newToListen = {
@@ -137,7 +113,7 @@ export const EpisodeDetails = () => {
     const DisplayFavoriteHosts = () => {
         const favHostsFromThisShow = favoriteHosts.filter(host => host.showName == selectedEpisode?.show?.name)
         return favHostsFromThisShow.map(host =>
-            <div className="host">⭐{host.name}</div>
+            <div key={host?.id} className="host">⭐{host.name}</div>
         )
     }
 

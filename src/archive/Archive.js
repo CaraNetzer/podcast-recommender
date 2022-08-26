@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
 import "./Archive.css"
 
 export const Archive = () => {
@@ -24,16 +25,16 @@ export const Archive = () => {
                 setArchive(shows)
             })
     }
-    
+
     return <>
         <article className="archive">
             <h2>Archived Shows</h2>
             <article className="shows">
-                {archive.map(show => 
+                {archive.map(show =>
                     <div key={show.id} className="showItem">
                         <img src={show.img} alt="show logo thumbnail" className="image item" />
                         <div className="textContent">
-                            <h3 className="showName item">{show.name}</h3>
+                            <Link to={`/showDetails/${show.spotifyShowId}`}><h3 className="showName item">{show.name}</h3></Link>
                             <button onClick={() => handleDelete(show)}>Delete</button>
                         </div>
                     </div>

@@ -8,28 +8,12 @@
   ],
   "shows": [
     {
-      "id": 1,
-      "name": "Lolita Podcast",
-      "img": "https://i.scdn.co/image/ab6765630000ba8ada2863fbfccab2b5822a846e",
-      "userId": 1,
-      "statusId": 1,
-      "spotifyShowId": "4dvc06zTAaAylzdTrsgKzp"
-    },
-    {
       "id": 5,
       "name": "You're Wrong About",
       "img": "https://i.scdn.co/image/ab6765630000ba8a557189992ebf2260823e4dff",
       "userId": 1,
       "statusId": 1,
       "spotifyShowId": "1RefFgQB4Lrl7qczcTWA3o"
-    },
-    {
-      "userId": 1,
-      "name": "Darknet Diaries",
-      "img": "https://i.scdn.co/image/ab6765630000ba8a11874ad24c1dcac2ace8d4c9",
-      "statusId": 1,
-      "spotifyShowId": "4XPl3uEEL9hvqMkoZrzbx5",
-      "id": 10
     },
     {
       "userId": 1,
@@ -56,17 +40,9 @@
     },
     {
       "userId": 1,
-      "name": "My Year in Mensa",
-      "img": "https://i.scdn.co/image/ab6765630000ba8a0e560027a6a611fc626e503b",
-      "statusId": 2,
-      "spotifyShowId": "0HOAQQu2JglNvaTQXsCyC1",
-      "id": 24
-    },
-    {
-      "userId": 1,
       "name": "A Woman's Smile with Patti Harrison and Lorelei Ramirez",
       "img": "https://i.scdn.co/image/ab6765630000ba8a0a90d6a14e2bd83e3bafd7e5",
-      "statusId": 1,
+      "statusId": 3,
       "spotifyShowId": "60yZiznL2kNwoDJcGKqczq",
       "id": 29
     },
@@ -98,11 +74,26 @@
     },
     {
       "userId": 1,
+      "name": "Lolita Podcast",
+      "img": "https://i.scdn.co/image/ab6765630000ba8ada2863fbfccab2b5822a846e",
+      "statusId": 3,
+      "id": 36
+    },
+    {
+      "userId": 1,
       "name": "Mother Country Radicals",
       "img": "https://i.scdn.co/image/ab6765630000ba8ac680238d2f0c48180b47e75a",
       "statusId": 2,
       "spotifyShowId": "1k8LpYwJ71vMu0mLxG2Am8",
-      "id": 35
+      "id": 38
+    },
+    {
+      "userId": 1,
+      "name": "Darknet Diaries",
+      "img": "https://i.scdn.co/image/ab6765630000ba8a11874ad24c1dcac2ace8d4c9",
+      "statusId": 1,
+      "spotifyShowId": "4XPl3uEEL9hvqMkoZrzbx5",
+      "id": 40
     }
   ],
   "favoriteShowHosts": [
@@ -114,14 +105,6 @@
     }
   ],
   "favoriteHosts": [
-    {
-      "userId": 1,
-      "name": "Sarah Marshall",
-      "statusId": 1,
-      "spotifyShowId": "1RefFgQB4Lrl7qczcTWA3o",
-      "showName": "You're Wrong About",
-      "id": 1
-    },
     {
       "userId": 1,
       "name": "Meg Stalter",
@@ -156,19 +139,43 @@
     },
     {
       "userId": 1,
-      "name": "Jacqueline Novak",
-      "statusId": 1,
-      "spotifyShowId": "0aF9EB1e73SmmWIrvC4I61",
-      "showName": "Poog with Kate Berlant and Jacqueline Novak",
-      "id": 8
-    },
-    {
-      "userId": 1,
       "name": "Jamie Loftus",
       "statusId": 1,
       "spotifyShowId": "0HOAQQu2JglNvaTQXsCyC1",
       "showName": "My Year in Mensa",
       "id": 9
+    },
+    {
+      "userId": 1,
+      "name": "George Civeris",
+      "statusId": 1,
+      "spotifyShowId": "4JwmzfCAD22229A7GJ81j1",
+      "showName": "StraightioLab",
+      "id": 10
+    },
+    {
+      "userId": 1,
+      "name": "Sam Taggart",
+      "statusId": 1,
+      "spotifyShowId": "4JwmzfCAD22229A7GJ81j1",
+      "showName": "StraightioLab",
+      "id": 11
+    },
+    {
+      "userId": 1,
+      "name": "Aubrey Gordon",
+      "statusId": 1,
+      "spotifyShowId": "3rDR8CfpIEMpITG2UC3w5W",
+      "showName": "Maintenance Phase",
+      "id": 12
+    },
+    {
+      "userId": 1,
+      "name": "Sarah Marshall",
+      "statusId": 1,
+      "spotifyShowId": "1RefFgQB4Lrl7qczcTWA3o",
+      "showName": "You're Wrong About",
+      "id": 13
     }
   ],
   "status": [

@@ -36,6 +36,21 @@ export const ShowDetails = () => {
 
     const navigate = useNavigate()
 
+    /* const logout = () => {
+        setToken("")
+        window.localStorage.removeItem("token")
+    }
+
+    const CLIENT_ID = "7ff6460da12d4c34b09842ed9289e756"
+    const REDIRECT_URI = "http://localhost:3000"
+    const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize"
+    const RESPONSE_TYPE = "token"
+
+    let href=`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`
+    const login = () => {
+        navigate("href")
+    } */
+
     useEffect(
         () => {
             fetch(`https://api.spotify.com/v1/shows/${showId}`, {
@@ -43,7 +58,21 @@ export const ShowDetails = () => {
                     Authorization: `Bearer ${token}`
                 }
             })
-                .then(response => response.json())
+                .then(response => /* {
+                    if (response.status != 401) {
+                        return response.json()
+                    } else {
+                        logout()
+                        login()
+                        //run lines 41-48 again
+                        fetch(`https://api.spotify.com/v1/shows/${showId}`, {
+                            headers: {
+                                Authorization: `Bearer ${token}`
+                            }
+                        })
+                            .then(response => */ response.json())
+                /* }
+            }) */
                 .then(data => {
                     const singleShow = data
                     setShow(singleShow)
@@ -144,7 +173,8 @@ export const ShowDetails = () => {
                 onChange={(e) => {
                     let [change] = [...host]
                     change = e.target.value
-                    setHost(change)}
+                    setHost(change)
+                }
                 }
             />
             <button onClick={() => addToFavoriteHosts()}>Add To Favorite Hosts</button>
@@ -154,31 +184,34 @@ export const ShowDetails = () => {
     const DisplayFavoriteHosts = () => {
         const favHostsFromThisShow = favoriteHosts.filter(host => host.showName == selectedShow?.name)
         return favHostsFromThisShow.map(host =>
-            <div key={host.id} className="host">⭐{host.name}</div>
+            <div key={host.id} className="host">⭐ {host.name}</div>
         )
     }
     const DisplayToListenEpisodes = () => {
         const toListenEpisodesFromThisShow = toListenShows.filter(show => show.spotifyShowId == selectedShow?.id)
         return toListenEpisodesFromThisShow.map(show =>
-            <div key={show.id} className="show">⭐{show.name}</div>
+            <div key={show.id} className="show">⭐ {show.name}</div>
         )
     }
 
     return <>
-        <button onClick={() => navigate("/searchShows")}>Back to Search</button>
+        <button type="button" className="btn btn-link" onClick={() => navigate("/searchShows")}>&lt; Back to Search</button>
         <div className="show" key={selectedShow?.id}>
-            <h1 className='link'>{selectedShow?.name}</h1>
-            {selectedShow?.images.length ? <img width="10%" src={selectedShow?.images[0].url} alt="" /> : <div>No Image</div>}
+            <div className="show-header">
+                {selectedShow?.images.length ? <img width="10%" src={selectedShow?.images[0].url} alt="" /> : <div>No Image</div>}
+                <div className="show-header-text">
+                    <h1 className='link'>{selectedShow?.name}</h1>
 
-            {addToFavoritesButton()
-                ? <button onClick={() => addToFavorites()}>Add To Favorites</button>
-                : ""
-            }
-            {addToListenButton()
-                ? <button onClick={() => addToListen()}>+ To Listen</button>
-                : ""
-            }
-
+                    {addToFavoritesButton()
+                        ? <button onClick={() => addToFavorites()}>Add To Favorites</button>
+                        : ""
+                    }
+                    {addToListenButton()
+                        ? <button onClick={() => addToListen()}>+ To Listen</button>
+                        : ""
+                    }
+                </div>
+            </div>
             <p><b>Description</b>: {selectedShow?.description}</p>
             <p><b>Number of Episodes</b>: {selectedShow?.total_episodes}</p>
             <div className="savedEpisodes">
@@ -187,14 +220,15 @@ export const ShowDetails = () => {
                     : ""
                 }
             </div>
-            <button onClick={() => showDiv()}>Add Hosts</button>
-            {showHostFeild ? <HostField /> : null}                                     
+            <div><b>Hosts</b>:</div>
             <div className="hosts">
                 {favoriteHosts.find(host => host.showName === selectedShow?.name) != undefined
                     ? <DisplayFavoriteHosts />
                     : ""
                 }
             </div>
+            <button onClick={() => showDiv()}>Add Hosts</button>
+            {showHostFeild ? <HostField /> : null}
         </div>
     </>
 }

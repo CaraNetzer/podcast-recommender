@@ -26,15 +26,14 @@
 }
 
 .host {
-    background-color: gold;
-    width:fit-content;
-    border-radius: 5px;
     padding: .5%;
-    border: 1px solid gray;
     margin: 0 1%;
 }
 
-.hosts {
+.show {
+    margin: 2%;
+}
+
+.show-header {
     display: flex;
-    flex-direction: row;
 }

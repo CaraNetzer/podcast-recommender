@@ -6,7 +6,7 @@
 }
 .wholeNavBar {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: left;
 }
 
@@ -25,6 +25,14 @@
     margin-left: auto;
     color: #9a9d90;
 }
+.navbar__logout:hover {
+    color: #d9d9d9;
+}
+
+.navbar__login {
+    margin-left: auto;
+    color: #9a9d90;
+}
 
 .navbar-nav {
     display: flex;
@@ -38,4 +46,22 @@
 .title {
     padding: 0 5% 0 0;
     color: white;
+}
+
+#spotifyNav {
+    padding: 0;
+    background-color: #9a9d90;
+}
+
+#spotifyLogoutLink {
+    color: rgb(55, 55, 55);
+}
+#spotifyLogoutLink:hover {
+    color: #d9d9d9;
+}
+#spotifyLoginLink {
+    color: rgb(55, 55, 55);
+}
+#spotifyLoginLink:hover {
+    color: #d9d9d9;
 }

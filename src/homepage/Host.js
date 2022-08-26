@@ -17,13 +17,13 @@ export const Host = ({ host, setFavoriteHosts, selectedHosts, setSelectedHosts }
             })
     }
 
-    let [selected,setSelected] = useState(false)
+    let [selected, setSelected] = useState(false)
     const selectHost = (host) => {
-        if(selected) {
+        if (selected) {
             setSelected(false)
             let copy = [...selectedHosts]
             const wantedIndex = copy.indexOf(host)
-            copy.splice(wantedIndex,1)
+            copy.splice(wantedIndex, 1)
             setSelectedHosts(copy)
         } else {
             setSelected(true)
@@ -32,9 +32,13 @@ export const Host = ({ host, setFavoriteHosts, selectedHosts, setSelectedHosts }
     }
 
     return <div className="hostItem">
-        <h4 className="showhost">{host.name}</h4>
-        <input id="checkbox" checked={selected} type="checkbox" onChange={() => selectHost(host)} />
-        <button onClick={() => handleDelete(host)}>Delete</button>
-        
+        <div id="checkboxBox">
+            <input id="checkbox" checked={selected} type="checkbox" onChange={() => selectHost(host)} />
+        </div>
+        <div className="hostText">
+            <h4 className="showhost">{host.name}</h4>
+            <button className="hostBtn btn btn-outline-danger btn-sm" onClick={() => handleDelete(host)}>Delete</button>
+        </div>
+
     </div>
 }

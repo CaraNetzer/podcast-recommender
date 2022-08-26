@@ -2,27 +2,12 @@ import { useEffect, useState } from "react"
 import "./Recommender.css"
 import { Link, useParams } from "react-router-dom"
 
-export const Recommender = () => {
+export const Recommender = ({ access_token }) => {
     const { hosts } = useParams()
     const [featuredEpisodes, setFeaturedEpisodes] = useState([])
+    
 
-    const [access_token, setToken] = useState("")
-    useEffect(() => {
-        const hash = window.location.hash
-        let token = window.localStorage.getItem("token")
-
-        if (!token && hash) {
-            token = hash.substring(1).split("&").find(elem => elem.startsWith("access_token")).split("=")[1]
-
-            window.location.hash = ""
-            window.localStorage.setItem("token", token)
-        }
-
-        setToken(token)
-
-    }, [])
-
-    const searchQuery = hosts.split(" ")
+    const searchQuery = hosts.replaceAll("+", " ")
     console.log(searchQuery)
     const searchEpisodesUrl = new URL("https://api.spotify.com/v1/search")
     const searchEpisodeParams = {
@@ -44,8 +29,8 @@ export const Recommender = () => {
                 setFeaturedEpisodes(data.episodes?.items)
                 console.log(featuredEpisodes)
             })
-    },[])
-    
+    }, [])
+
 
 
     const renderEpisodes = () => {

@@ -3,34 +3,7 @@ import "./Search.css"
 import { Link } from "react-router-dom"
 
 
-export const SearchShows = () => {
-
-    const [access_token, setToken] = useState("")
-
-    const CLIENT_ID = "7ff6460da12d4c34b09842ed9289e756"
-    const REDIRECT_URI = "http://localhost:3000/searchShows"
-    const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize"
-    const RESPONSE_TYPE = "token"
-
-    useEffect(() => {
-        const hash = window.location.hash
-        let token = window.localStorage.getItem("token")
-
-        if (!token && hash) {
-            token = hash.substring(1).split("&").find(elem => elem.startsWith("access_token")).split("=")[1]
-
-            window.location.hash = ""
-            window.localStorage.setItem("token", token)
-        }
-
-        setToken(token)
-
-    }, [])
-
-    const logout = () => {
-        setToken("")
-        window.localStorage.removeItem("token")
-    }
+export const SearchShows = ({ access_token }) => {
 
     const [searchTerm, setSearchTerm] = useState("")
     const [shows, setShows] = useState([])
@@ -132,11 +105,6 @@ return (
                     <button type="submit">Search</button>
                 </form>
                 : <h2>Please log in</h2>
-            }
-            {
-                !access_token
-                    ? <a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}>Login to Spotify</a>
-                    : <button onClick={logout}>Logout of Spotify</button>
             }
         </div>
 

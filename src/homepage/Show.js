@@ -8,27 +8,13 @@ export const Show = ({ show, setFavoriteShows }) => {
     const userObject = JSON.parse(localUser)
     
     const handleArchive = (show) => {
-        const newFavorite = {
-            userId: userObject.id,
-            name: show.name,
-            img: show.img,
-            statusId: 3,
-            spotifyShowId: show.showId
-        }
-        fetch('http://localhost:8088/shows', {
-            method: "POST",
+        fetch(`http://localhost:8088/shows/${show.id}`, {
+            method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(newFavorite)
+            body: JSON.stringify({statusId: 3})
         })
-            .then(response => response.json()
-                .then(() => {
-                    fetch(`http://localhost:8088/shows/${show.id}`, {
-                        method: "DELETE"
-                    })
-                }
-                ))
             .then(() => fetch('http://localhost:8088/shows?statusId=1'))
             .then(response => response.json())
             .then(shows => {
@@ -50,8 +36,8 @@ export const Show = ({ show, setFavoriteShows }) => {
         <img src={show.img} alt="show logo thumbnail" className="image item" />
         <div className="textContent">
             <Link to={`/showDetails/${show.spotifyShowId}`}><h3 className="showName item">{show.name}</h3></Link>
-            <button onClick={() => handleArchive(show)}>Archive</button>
-            <button onClick={() => handleDelete(show)}>Delete</button>
+            <button type="button" className="btn btn-outline-info" onClick={() => handleArchive(show)}>Archive</button>
+            <button type="button" className="btn btn-outline-danger" onClick={() => handleDelete(show)}>Delete</button>
         </div>
     </div>
 }
