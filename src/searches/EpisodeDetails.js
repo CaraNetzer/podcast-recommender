@@ -36,8 +36,7 @@ export const EpisodeDetails = () => {
             })
                 .then(response => response.json())
                 .then(data => {
-                    const singleShow = data
-                    setEpisode(singleShow)
+                    setEpisode(data)
                     console.log(selectedEpisode)
                 })
         }, [episodeId]
@@ -50,7 +49,8 @@ export const EpisodeDetails = () => {
             img: selectedEpisode.images[0].url,
             statusId: 2,
             spotifyShowId: selectedEpisode.show.id,
-            spotifyEpisodeId: selectedEpisode.id
+            spotifyEpisodeId: selectedEpisode.id,
+            publisher: selectedEpisode.show.publisher
         }
         fetch('http://localhost:8088/shows', {
             method: "POST",
@@ -100,13 +100,16 @@ export const EpisodeDetails = () => {
     const [showHostFeild, setShowHostFeild] = useState(false)
     const showDiv = () => showHostFeild ? setShowHostFeild(false) : setShowHostFeild(true)
     const HostField = () => {
-        return <div className="host-field">
-            <input type="text"
-                placeholder="Enter one name at a time"
+        return <div class="input-group mb-3 host-field">
+            <input type="text" className="form-control"
                 value={host}
-                onChange={(e) => setHost(e.target.value)}
+                onChange={(e) => { setHost(e.target.value) }}
+                placeholder="Enter one name at a time"
+                aria-label="Enter one name at a time"
             />
-            <button onClick={() => addToFavoriteHosts()}>Add To Favorite Hosts</button>
+            <div className="input-group-append">
+                <button type="button" className="host-btn btn btn-outline-success" onClick={() => addToFavoriteHosts()}>Add To Favorite Hosts</button>
+            </div>
         </div>
     }
 
@@ -118,26 +121,30 @@ export const EpisodeDetails = () => {
     }
 
     return <>
-        <button onClick={() => navigate("/searchShows")}>Back to Search</button>
+        <button type="button" className="btn btn-link" onClick={() => navigate("/searchShows")}>&lt; Back to Search</button>
         <div className="show" key={selectedEpisode?.id}>
-            <h1><Link to={`/showDetails/${selectedEpisode?.show.id}`}>{selectedEpisode?.show.name}</Link></h1>
-            <h2>Episode: {selectedEpisode?.name}</h2>
-            {selectedEpisode?.images.length ? <img width="10%" src={selectedEpisode?.images[0].url} alt="" /> : <div>No Image</div>}
-            
-            {addToListenButton()
-                ? <button onClick={() => addToListen()}>+ To Listen</button>
-                : ""
-            }
+            <div className="show-header">
+                {selectedEpisode?.images.length ? <img id="showImage" width="16%" src={selectedEpisode?.images[0].url} alt="" /> : <div>No Image</div>}
+                <div className="show-header-text">
+                    <h1 className='showTitle'><Link to={`/showDetails/${selectedEpisode?.show.id}`}>{selectedEpisode?.show.name}</Link></h1>
+                    <h2>Episode: {selectedEpisode?.name}</h2>
+                    {addToListenButton()
+                        ? <button className="btn btn-warning" onClick={() => addToListen()}>+ To Listen</button>
+                        : ""
+                    }
+                </div>
+            </div>
 
-            <p><b>Episode Description</b>: {selectedEpisode?.description}</p>
-            <button onClick={() => showDiv()}>Add Hosts</button>
-            {showHostFeild ? <HostField /> : null}
+            <p className="description"><b>Episode Description</b>: {selectedEpisode?.description}</p>
+            <div><b>Hosts</b>:</div>
             <div className="hosts">
                 {favoriteHosts.find(host => host.showName === selectedEpisode?.show?.name) != undefined
                     ? <DisplayFavoriteHosts />
                     : ""
                 }
             </div>
+            <button className="btn btn-info" onClick={() => showDiv()}>Add Hosts ▼</button>
+            {showHostFeild ? <HostField /> : null}
         </div>
     </>
 }

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
+import "../homepage/Homepage.css"
 import "./Archive.css"
 
 export const Archive = () => {
@@ -29,16 +30,34 @@ export const Archive = () => {
     return <>
         <article className="archive">
             <h2>Archived Shows</h2>
-            <article className="shows">
-                {archive.map(show =>
-                    <div key={show.id} className="showItem">
-                        <img src={show.img} alt="show logo thumbnail" className="image item" />
-                        <div className="textContent">
-                            <Link to={`/showDetails/${show.spotifyShowId}`}><h3 className="showName item">{show.name}</h3></Link>
-                            <button onClick={() => handleDelete(show)}>Delete</button>
-                        </div>
+            <article className="archived-shows">
+
+                {archive.map(show => <div key={show.id} className="card">
+                    <div className="card-image">
+                        <figure className="image is-1by1">
+                            <img src={show.img} alt="show logo thumbnail" />
+                        </figure>
                     </div>
+                    <div className="card-content">
+                        <div className="media">
+                            <div className="media-left">
+                                <figure className="image is-48x48">
+                                    <img src={show.img} alt="Placeholder image" />
+                                </figure>
+                            </div>
+                            <div className="media-content">
+                                <Link to={`/showDetails/${show.spotifyShowId}`}><h3 className="showName item">{show.name}</h3></Link>
+                                <p className="subtitle">by {show.publisher}</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <footer className="card-footer">
+                        <button type="button" className="btn btn-outline-danger" onClick={() => handleDelete(show)}>Delete</button>
+                    </footer>
+                </div>
                 )}
+
             </article>
         </article>
     </>

@@ -8,11 +8,12 @@
 }
 
 .results {
-    background-color: #a79c9c;
     width: 80%;
     padding: 1em 2em;
     margin: 4% auto;
     border-radius: 20px;
+    background-color: white;
+    box-shadow: 0 0.5em 1em -0.125em rgba(75, 75, 75, 0.5), 0 0 0 1px rgb(10 10 10 / 2%);
 }
 
 #searchMain {
@@ -20,8 +21,9 @@
     width: 90%;
 }
 
-#searchHeader {
+form {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
 }
 
@@ -36,4 +38,27 @@
 
 .show-header {
     display: flex;
+    flex: row;
+}
+
+.host-field {
+    width: 40%;
+    margin: 0 2%;
+}
+
+.host-btn {
+    height: 100%;
+    margin: 0;
+}
+
+.showTitle {
+    width: fit-content;
+}
+
+.show-header-text {
+    padding: 0 0 0 1%;
+}
+
+.description {
+    padding: 2% 0 1% 0;
 }

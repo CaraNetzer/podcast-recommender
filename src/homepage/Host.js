@@ -31,14 +31,17 @@ export const Host = ({ host, setFavoriteHosts, selectedHosts, setSelectedHosts }
         }
     }
 
-    return <div className="hostItem">
-        <div id="checkboxBox">
-            <input id="checkbox" checked={selected} type="checkbox" onChange={() => selectHost(host)} />
+    return <div className="input-group mb-3 hostItem">
+            <div className="input-group-prepend">
+                <div className="input-group-text">
+                    <div id="checkboxBox">
+                        <input id="checkbox" checked={selected} type="checkbox" onChange={() => selectHost(host)} />
+                    </div>
+                </div>
+            </div>
+            <div className="form-control hostText">
+                <h4 className="showhost">{host.name}</h4>
+                <button className="hostBtn btn btn-outline-danger btn-sm" onClick={() => handleDelete(host)}>Delete</button>
+            </div>
         </div>
-        <div className="hostText">
-            <h4 className="showhost">{host.name}</h4>
-            <button className="hostBtn btn btn-outline-danger btn-sm" onClick={() => handleDelete(host)}>Delete</button>
-        </div>
-
-    </div>
 }

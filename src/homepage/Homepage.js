@@ -47,7 +47,7 @@ export const Homepage = () => {
 
     return <>
         <article className="favoriteShows">
-            <h2>Favorite Shows</h2>
+            <h1>Favorite Shows</h1>
             <article className="shows">
 
                 {
@@ -65,7 +65,7 @@ export const Homepage = () => {
             </article>
 
             {selectedHosts.length >= 2 
-                ? <button onClick={() => navigate(`/recommendations/${selectedHostsSearchTerm}`)}>Get Recommendations</button> 
+                ? <button type="button" className="host-btn btn btn-outline-info" onClick={() => navigate(`/recommendations/${selectedHostsSearchTerm}`)}>Get Recommendations</button> 
                 : null
             }
 

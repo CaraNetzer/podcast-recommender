@@ -8,12 +8,22 @@
   ],
   "shows": [
     {
-      "id": 5,
+      "userId": 1,
       "name": "You're Wrong About",
       "img": "https://i.scdn.co/image/ab6765630000ba8a557189992ebf2260823e4dff",
-      "userId": 1,
       "statusId": 1,
-      "spotifyShowId": "1RefFgQB4Lrl7qczcTWA3o"
+      "spotifyShowId": "1RefFgQB4Lrl7qczcTWA3o",
+      "publisher": "Sarah Marshall",
+      "id": 39
+    },
+    {
+      "userId": 1,
+      "name": "Darknet Diaries",
+      "img": "https://i.scdn.co/image/ab6765630000ba8a11874ad24c1dcac2ace8d4c9",
+      "statusId": 1,
+      "spotifyShowId": "4XPl3uEEL9hvqMkoZrzbx5",
+      "publisher": "Jack Rhysider",
+      "id": 40
     },
     {
       "userId": 1,
@@ -21,30 +31,8 @@
       "img": "https://i.scdn.co/image/ab6765630000ba8a9d131cbd7a36fdaa6f7b39e9",
       "statusId": 1,
       "spotifyShowId": "0Vdp4gyQoY0kkcvaLnIgvx",
-      "id": 11
-    },
-    {
-      "userId": 1,
-      "name": "Poog with Kate Berlant and Jacqueline Novak",
-      "img": "https://i.scdn.co/image/ab6765630000ba8a2aeeded35d3d751dd8ba9aa3",
-      "statusId": 1,
-      "spotifyShowId": "0aF9EB1e73SmmWIrvC4I61",
-      "id": 12
-    },
-    {
-      "userId": 1,
-      "name": "Maintenance Phase",
-      "img": "https://i.scdn.co/image/ab6765630000ba8a7f390517e3be0df1bb707a67",
-      "statusId": 3,
-      "id": 21
-    },
-    {
-      "userId": 1,
-      "name": "A Woman's Smile with Patti Harrison and Lorelei Ramirez",
-      "img": "https://i.scdn.co/image/ab6765630000ba8a0a90d6a14e2bd83e3bafd7e5",
-      "statusId": 3,
-      "spotifyShowId": "60yZiznL2kNwoDJcGKqczq",
-      "id": 29
+      "publisher": "Earwolf & Laci Mosley",
+      "id": 41
     },
     {
       "userId": 1,
@@ -52,7 +40,9 @@
       "img": "https://i.scdn.co/image/ab6765630000ba8a2c4f54931749f8477cbfcba7",
       "statusId": 2,
       "spotifyShowId": "7ARINaz7N2ji2Q97MLjnCJ",
-      "id": 31
+      "spotifyEpisodeId": "4xYP7mGUHUBdmNfEUOfrzq",
+      "publisher": "Big Money Players Network and iHeartPodcasts",
+      "id": 44
     },
     {
       "userId": 1,
@@ -61,7 +51,8 @@
       "statusId": 2,
       "spotifyShowId": "4JwmzfCAD22229A7GJ81j1",
       "spotifyEpisodeId": "40pwxhYoVnwSGJ9TpCtZ1n",
-      "id": 32
+      "publisher": "Big Money Players Network and iHeartPodcasts",
+      "id": 45
     },
     {
       "userId": 1,
@@ -70,14 +61,8 @@
       "statusId": 2,
       "spotifyShowId": "3rDR8CfpIEMpITG2UC3w5W",
       "spotifyEpisodeId": "4T5yTKxqYRqkO9BfscXB0c",
-      "id": 34
-    },
-    {
-      "userId": 1,
-      "name": "Lolita Podcast",
-      "img": "https://i.scdn.co/image/ab6765630000ba8ada2863fbfccab2b5822a846e",
-      "statusId": 3,
-      "id": 36
+      "publisher": "Aubrey Gordon & Michael Hobbes",
+      "id": 46
     },
     {
       "userId": 1,
@@ -85,15 +70,53 @@
       "img": "https://i.scdn.co/image/ab6765630000ba8ac680238d2f0c48180b47e75a",
       "statusId": 2,
       "spotifyShowId": "1k8LpYwJ71vMu0mLxG2Am8",
-      "id": 38
+      "publisher": "Crooked Media",
+      "id": 47
     },
     {
       "userId": 1,
-      "name": "Darknet Diaries",
-      "img": "https://i.scdn.co/image/ab6765630000ba8a11874ad24c1dcac2ace8d4c9",
+      "name": "Maintenance Phase",
+      "img": "https://i.scdn.co/image/ab6765630000ba8a7f390517e3be0df1bb707a67",
+      "statusId": 3,
+      "spotifyShowId": "3rDR8CfpIEMpITG2UC3w5W",
+      "publisher": "Aubrey Gordon & Michael Hobbes",
+      "id": 48
+    },
+    {
+      "userId": 1,
+      "name": "Lolita Podcast",
+      "img": "https://i.scdn.co/image/ab6765630000ba8ada2863fbfccab2b5822a846e",
+      "statusId": 3,
+      "spotifyShowId": "4dvc06zTAaAylzdTrsgKzp",
+      "publisher": "iHeartPodcasts",
+      "id": 49
+    },
+    {
+      "userId": 1,
+      "name": "A Woman's Smile with Patti Harrison and Lorelei Ramirez",
+      "img": "https://i.scdn.co/image/ab6765630000ba8a0a90d6a14e2bd83e3bafd7e5",
+      "statusId": 3,
+      "spotifyShowId": "60yZiznL2kNwoDJcGKqczq",
+      "publisher": "Forever Dog",
+      "id": 50
+    },
+    {
+      "userId": 1,
+      "name": "StraightioLab",
+      "img": "https://i.scdn.co/image/ab6765630000ba8a7a269aa660d64474bfcee8fa",
       "statusId": 1,
-      "spotifyShowId": "4XPl3uEEL9hvqMkoZrzbx5",
-      "id": 40
+      "spotifyShowId": "4JwmzfCAD22229A7GJ81j1",
+      "publisher": "Big Money Players Network and iHeartPodcasts",
+      "id": 51
+    },
+    {
+      "userId": 1,
+      "name": "Poog with Kate Berlant and Jacqueline Novak",
+      "img": "https://i.scdn.co/image/ab6765630000ba8a2aeeded35d3d751dd8ba9aa3",
+      "statusId": 1,
+      "spotifyShowId": "0aF9EB1e73SmmWIrvC4I61",
+      "publisher": "Big Money Players Network and iHeartPodcasts",
+      "id": 52
     }
   ],
   "favoriteShowHosts": [
@@ -176,6 +199,14 @@
       "spotifyShowId": "1RefFgQB4Lrl7qczcTWA3o",
       "showName": "You're Wrong About",
       "id": 13
+    },
+    {
+      "userId": 1,
+      "name": "Jacqueline Novak",
+      "statusId": 1,
+      "spotifyShowId": "0QFo3FWLE0OcBXMG7dGH4h",
+      "showName": "Poog with Kate Berlant and Jacqueline Novak",
+      "id": 14
     }
   ],
   "status": [

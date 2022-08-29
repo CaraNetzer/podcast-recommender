@@ -5,7 +5,7 @@ import { Link, useParams } from "react-router-dom"
 export const Recommender = ({ access_token }) => {
     const { hosts } = useParams()
     const [featuredEpisodes, setFeaturedEpisodes] = useState([])
-    
+
 
     const searchQuery = hosts.replaceAll("+", " ")
     console.log(searchQuery)
@@ -35,17 +35,22 @@ export const Recommender = ({ access_token }) => {
 
     const renderEpisodes = () => {
         return featuredEpisodes?.map(episode => (
-            <div className="searchResult" key={episode.id}>
-                {episode.images.length ? <img width="10%" src={episode.images[0].url} alt="" /> : <div>No Image</div>}
-                <div className='link'><Link to={`/episodeDetails/${episode.id}`}>{episode.name}</Link></div>
+            <div className="result-number-section">
+                <h4 className="result-number">#{featuredEpisodes.indexOf(episode)+1}:</h4>
+                <div className="searchResult" key={episode.id}>
+
+                    {episode.images.length ? <img width="10%" src={episode.images[0].url} alt="" /> : <div>No Image</div>}
+                    <h4 className='link'><Link to={`/episodeDetails/${episode.id}`}>{episode.name}</Link></h4>
+                </div>
             </div>
         ))
     }
 
     return <>
-        <h2>Episodes Featuring:</h2>
-        <h3>{hosts}</h3>
-        <div className='results'>
+        <div className="rec-header">
+            <h1>Episodes Featuring: {hosts}</h1>
+        </div>
+        <div className='rec-results'>
             {renderEpisodes()}
         </div>
     </>

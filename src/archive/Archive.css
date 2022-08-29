@@ -1,10 +1,23 @@
-.image {
+/* .image {
     min-width: 137px;
     width: 20%;
     object-fit: contain;
     padding: 10%;
     border-radius: 20px 0 0 20px;
+} */
+
+/* .card {
+    width: 20%;
+    margin: 1%;
+    height: min-content;
+    box-shadow: 0 0.5em 1em -0.125em rgba(75, 75, 75, 0.5), 0 0 0 1px rgb(10 10 10 / 2%);
+    border-radius: .5rem;
 }
+
+.card-image:first-child img {
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+} */
 
 .showItem {
     display: flex;
@@ -23,7 +36,7 @@ button {
     height: fit-content;
 }
 
-.shows {
+.archived-shows {
     display: flex;
     justify-content: flex-start;
     flex-flow: row wrap;
@@ -42,6 +55,14 @@ button {
     padding: 0 0 0 5%;
 }
 
-body {
-    background-color: #d9d9d9;
+@media screen and (max-width: 600px) {
+    .card-footer {
+        display: flex;
+        flex-direction: column;
+        flex-flow: row wrap;
+    }
+
+    .btn {
+        margin: 2%;
+    }
 }

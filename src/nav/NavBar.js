@@ -16,7 +16,7 @@ export const NavBar = ({ access_token, setToken }) => {
 
     return (<div className="wholeNavBar">
         <nav className="navbar navbar-dark navbar-expand-lg bg-dark">
-            <h2 className="title">Podcast Recommender</h2>
+            <h1 className="title">Podcast Recommender</h1>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>

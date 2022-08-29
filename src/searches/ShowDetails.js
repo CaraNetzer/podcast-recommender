@@ -11,6 +11,7 @@ export const ShowDetails = () => {
     const [host, setHost] = useState("")
     const [favoriteHosts, setFavoriteHosts] = useState([])
 
+
     useEffect(
         () => {
             fetch('http://localhost:8088/favoriteHosts')
@@ -35,21 +36,6 @@ export const ShowDetails = () => {
     const token = window.localStorage.getItem("token")
 
     const navigate = useNavigate()
-
-    /* const logout = () => {
-        setToken("")
-        window.localStorage.removeItem("token")
-    }
-
-    const CLIENT_ID = "7ff6460da12d4c34b09842ed9289e756"
-    const REDIRECT_URI = "http://localhost:3000"
-    const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize"
-    const RESPONSE_TYPE = "token"
-
-    let href=`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`
-    const login = () => {
-        navigate("href")
-    } */
 
     useEffect(
         () => {
@@ -76,6 +62,7 @@ export const ShowDetails = () => {
                 .then(data => {
                     const singleShow = data
                     setShow(singleShow)
+                    console.log(selectedShow)
                 })
         }, [showId]
     )
@@ -86,7 +73,8 @@ export const ShowDetails = () => {
             name: selectedShow.name,
             img: selectedShow.images[0].url,
             statusId: 1,
-            spotifyShowId: showId
+            spotifyShowId: showId,
+            publisher: selectedShow.publisher
         }
         fetch('http://localhost:8088/shows', {
             method: "POST",
@@ -109,7 +97,8 @@ export const ShowDetails = () => {
             name: selectedShow.name,
             img: selectedShow.images[0].url,
             statusId: 2,
-            spotifyShowId: showId
+            spotifyShowId: showId,
+            publisher: selectedShow.publisher
         }
         fetch('http://localhost:8088/shows', {
             method: "POST",
@@ -166,18 +155,16 @@ export const ShowDetails = () => {
     const [showHostFeild, setShowHostFeild] = useState(false)
     const showDiv = () => showHostFeild ? setShowHostFeild(false) : setShowHostFeild(true)
     const HostField = () => {
-        return <div className="host-field">
-            <input type="text"
-                placeholder="Enter one name at a time"
+        return <div class="input-group mb-3 host-field">
+            <input type="text" className="form-control"
                 value={host}
-                onChange={(e) => {
-                    let [change] = [...host]
-                    change = e.target.value
-                    setHost(change)
-                }
-                }
+                onChange={(e) => { setHost(e.target.value) }}
+                placeholder="Enter one name at a time"
+                aria-label="Enter one name at a time"
             />
-            <button onClick={() => addToFavoriteHosts()}>Add To Favorite Hosts</button>
+            <div className="input-group-append">
+                <button type="button" className="host-btn btn btn-outline-success" onClick={() => addToFavoriteHosts()}>Add To Favorite Hosts</button>
+            </div>
         </div>
     }
 
@@ -198,21 +185,21 @@ export const ShowDetails = () => {
         <button type="button" className="btn btn-link" onClick={() => navigate("/searchShows")}>&lt; Back to Search</button>
         <div className="show" key={selectedShow?.id}>
             <div className="show-header">
-                {selectedShow?.images.length ? <img width="10%" src={selectedShow?.images[0].url} alt="" /> : <div>No Image</div>}
+                {selectedShow?.images?.length ? <img id="showImage" width="16%" src={selectedShow?.images[0].url} alt="" /> : <div>No Image</div>}
                 <div className="show-header-text">
-                    <h1 className='link'>{selectedShow?.name}</h1>
+                    <h1 className='showTitle'>{selectedShow?.name}</h1>
 
                     {addToFavoritesButton()
-                        ? <button onClick={() => addToFavorites()}>Add To Favorites</button>
+                        ? <button className="btn btn-success" onClick={() => addToFavorites()}>Add To Favorites</button>
                         : ""
                     }
                     {addToListenButton()
-                        ? <button onClick={() => addToListen()}>+ To Listen</button>
+                        ? <button className="btn btn-warning" onClick={() => addToListen()}>+ To Listen</button>
                         : ""
                     }
                 </div>
             </div>
-            <p><b>Description</b>: {selectedShow?.description}</p>
+            <p className="description"><b>Description</b>: {selectedShow?.description}</p>
             <p><b>Number of Episodes</b>: {selectedShow?.total_episodes}</p>
             <div className="savedEpisodes">
                 {toListenShows.find(show => show.spotifyShowId === selectedShow?.id) != undefined
@@ -227,7 +214,7 @@ export const ShowDetails = () => {
                     : ""
                 }
             </div>
-            <button onClick={() => showDiv()}>Add Hosts</button>
+            <button className="btn btn-info" onClick={() => showDiv()}>Add Hosts ▼</button>
             {showHostFeild ? <HostField /> : null}
         </div>
     </>
