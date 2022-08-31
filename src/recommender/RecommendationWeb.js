@@ -8,6 +8,7 @@ export const RecommendationWeb = ({ access_token }) => {
 
     for (const host of allHosts) {
         const searchQuery = `${selectedHost.name} and ${host.name}`
+        //console.log(searchQuery)
 
         const searchEpisodesUrl = new URL("https://api.spotify.com/v1/search")
         const searchEpisodeParams = {
@@ -26,9 +27,10 @@ export const RecommendationWeb = ({ access_token }) => {
             .then(data => {
                 recommendedEpisodes.push({
                     host: host.name,
-                    episodes: data.episodes?.items
+                    episodes: data.episodes?.items,
+                    searchQ: searchQuery
                 })
-                //console.log(recommendedEpisodes)
+                console.log(recommendedEpisodes)
             })
     }
 
@@ -52,28 +54,44 @@ const splitHosts = (host) => {
     copy.splice(i, 1)
     if (numOfHosts % 2 === 0) {
         leftHosts = copy.slice(0, (numOfHosts / 2))
-        console.log(leftHosts)
         rightHosts = copy.slice((numOfHosts / 2), numOfHosts - 1)
-        console.log(rightHosts)
     } else {
         leftHosts = copy.slice(0, Math.floor(numOfHosts / 2))
         rightHosts = copy.slice(Math.floor(numOfHosts / 2), numOfHosts + 1)
     }
 }
 
-const selectHost = (selectedHost) => {
-    setSelectedHost(selectedHost)
+const selectHost = (hostToSelect) => {
+    setSelectedHost(hostToSelect)
 
     splitHosts(selectedHost)
+
+    //console.log(selectedHost)
+    //console.log(recommendedEpisodes.find(object => object.searchQ === `${selectedHost.name} and Patti Harrison`).episodes[0].name)
 
     const leftHTML = leftHosts.map(host => `<div class="sideWebCircle">
             <h3 class="other-host-name">${host.name}</h3>
             <div class="web-results">
                 <h5 class="rec-heading">Recommended Episodes for: ${host.name} and ${selectedHost.name}</h5>
                 <div class="rec-episodes">
-                    <a href="https://open.spotify.com/episode/${recommendedEpisodes.find(object => object.host === host.name)?.episodes[0].id}" class="rec-episode" target="_blank"><img src="${recommendedEpisodes.find(object => object.host === host.name)?.episodes[0].images[0].url}" alt="#" /></a>
-                    <a href="https://open.spotify.com/episode/${recommendedEpisodes.find(object => object.host === host.name)?.episodes[1].id}" class="rec-episode" target="_blank"><img src="${recommendedEpisodes.find(object => object.host === host.name)?.episodes[1].images[0].url}" alt="#" /></a>
-                    <a href="https://open.spotify.com/episode/${recommendedEpisodes.find(object => object.host === host.name)?.episodes[2].id}" class="rec-episode" target="_blank"><img src="${recommendedEpisodes.find(object => object.host === host.name)?.episodes[2].images[0].url}" alt="#" /></a>
+                    <a href="https://open.spotify.com/episode/${recommendedEpisodes.find(object => object.searchQ === `${selectedHost.name} and ${host.name}`).episodes[0].id}" 
+                        class="rec-episode" 
+                        title="Episode: ${recommendedEpisodes.find(object => object.searchQ === `${selectedHost.name} and ${host.name}`).episodes[0].name}" 
+                        target="_blank">
+                        <img src="${recommendedEpisodes.find(object => object.searchQ === `${selectedHost.name} and ${host.name}`).episodes[0].images[0].url}" alt="#" />
+                    </a>
+                    <a href="https://open.spotify.com/episode/${recommendedEpisodes.find(object => object.searchQ === `${selectedHost.name} and ${host.name}`).episodes[1].id}" 
+                        class="rec-episode" 
+                        title="Episode: ${recommendedEpisodes.find(object => object.searchQ === `${selectedHost.name} and ${host.name}`).episodes[1].name}" 
+                        target="_blank">
+                        <img src="${recommendedEpisodes.find(object => object.searchQ === `${selectedHost.name} and ${host.name}`).episodes[1].images[0].url}" alt="#" />
+                    </a>
+                    <a href="https://open.spotify.com/episode/${recommendedEpisodes.find(object => object.searchQ === `${selectedHost.name} and ${host.name}`).episodes[2].id}" 
+                        class="rec-episode" 
+                        title="Episode: ${recommendedEpisodes.find(object => object.searchQ === `${selectedHost.name} and ${host.name}`).episodes[2].name}" 
+                        target="_blank">
+                        <img src="${recommendedEpisodes.find(object => object.searchQ === `${selectedHost.name} and ${host.name}`).episodes[2].images[0].url}" alt="#" />
+                    </a>
                 </div>    
                 </div>
         </div>`)
@@ -83,9 +101,24 @@ const selectHost = (selectedHost) => {
             <div class="web-results">
                 <h5 class="rec-heading">Recommended Episodes for: ${host.name} and ${selectedHost.name}</h5>
                 <div class="rec-episodes">
-                    <a href="https://open.spotify.com/episode/${recommendedEpisodes.find(object => object.host === host.name)?.episodes[0].id}" class="rec-episode" target="_blank"><img src="${recommendedEpisodes.find(object => object.host === host.name)?.episodes[0].images[0].url}" alt="#" /></a>
-                    <a href="https://open.spotify.com/episode/${recommendedEpisodes.find(object => object.host === host.name)?.episodes[1].id}" class="rec-episode" target="_blank"><img src="${recommendedEpisodes.find(object => object.host === host.name)?.episodes[1].images[0].url}" alt="#" /></a>
-                    <a href="https://open.spotify.com/episode/${recommendedEpisodes.find(object => object.host === host.name)?.episodes[2].id}" class="rec-episode" target="_blank"><img src="${recommendedEpisodes.find(object => object.host === host.name)?.episodes[2].images[0].url}" alt="#" /></a>
+                    <a href="https://open.spotify.com/episode/${recommendedEpisodes.find(object => object.host === host.name)?.episodes[0].id}" 
+                        class="rec-episode" 
+                        title="Episode: ${recommendedEpisodes.find(object => object.host === host.name)?.episodes[0].name}" 
+                        target="_blank">
+                        <img src="${recommendedEpisodes.find(object => object.host === host.name)?.episodes[0].images[0].url}" alt="#" />
+                    </a>
+                    <a href="https://open.spotify.com/episode/${recommendedEpisodes.find(object => object.host === host.name)?.episodes[1].id}" 
+                        class="rec-episode" 
+                        title="Episode: ${recommendedEpisodes.find(object => object.host === host.name)?.episodes[1].name}" 
+                        target="_blank">
+                        <img src="${recommendedEpisodes.find(object => object.host === host.name)?.episodes[1].images[0].url}" alt="#" />
+                    </a>
+                    <a href="https://open.spotify.com/episode/${recommendedEpisodes.find(object => object.host === host.name)?.episodes[2].id}" 
+                        class="rec-episode" 
+                        title="Episode: ${recommendedEpisodes.find(object => object.host === host.name)?.episodes[2].name}" 
+                        target="_blank">
+                        <img src="${recommendedEpisodes.find(object => object.host === host.name)?.episodes[2].images[0].url}" alt="#" />
+                    </a>
                 </div> 
             </div>
         </div>`)

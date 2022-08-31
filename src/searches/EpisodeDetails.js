@@ -111,6 +111,7 @@ export const EpisodeDetails = () => {
         return <div className="input-group mb-3 host-field">
             <input type="text" className="form-control"
                 value={host}
+                autofocus
                 onChange={(e) => { setHost(e.target.value) }}
                 placeholder="Enter one name at a time"
                 aria-label="Enter one name at a time"
