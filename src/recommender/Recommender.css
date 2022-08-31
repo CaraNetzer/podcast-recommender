@@ -34,10 +34,14 @@
     width: 3em;
     background-color: black;
     box-shadow: 0 0.5em 1em -0.125em rgba(75, 75, 75, 0.5), 0 0 0 1px rgb(10 10 10 / 2%);
+    transition: .2s;
 }
 
 .rec-episodes {
     display: flex;
+}
+.rec-episode:hover {
+    transform: scale(1.1);
 }
 
 #middleWebCircle {

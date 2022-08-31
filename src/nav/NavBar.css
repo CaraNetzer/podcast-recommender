@@ -11,8 +11,16 @@
     justify-content: left;
 }
 
-.nav-link {
+.my-nav-link {
     color: #d9d9d9;
+    display: block;
+    padding: .5rem 1rem;
+    text-decoration: none;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+}
+.my-nav-link:hover {
+    color: white;
+    text-decoration: none;
 }
 
 .navbar__item {
