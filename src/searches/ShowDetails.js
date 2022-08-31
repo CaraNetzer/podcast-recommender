@@ -28,6 +28,14 @@ export const ShowDetails = () => {
                     setToListenShows(shows)
                 })
         }, [])
+    useEffect(
+        () => {
+            fetch('http://localhost:8088/shows?statusId=1')
+                .then(response => response.json())
+                .then(shows => {
+                    setFavoriteShows(shows)
+                })
+        }, [])
 
 
     const localUser = localStorage.getItem("app_user")
@@ -44,7 +52,7 @@ export const ShowDetails = () => {
                     Authorization: `Bearer ${token}`
                 }
             })
-                .then(response => /* {
+                .then(response => /* { //attempt to catch the 401 error when you need to relogin to spotify
                     if (response.status != 401) {
                         return response.json()
                     } else {
@@ -138,6 +146,7 @@ export const ShowDetails = () => {
     }
 
     const addToFavoritesButton = () => {
+        console.log(favoriteShows)
         if (favoriteShows.find(show => show.name === selectedShow?.name) == undefined) {
             return true
         } else {
@@ -171,13 +180,13 @@ export const ShowDetails = () => {
     const DisplayFavoriteHosts = () => {
         const favHostsFromThisShow = favoriteHosts.filter(host => host.showName == selectedShow?.name)
         return favHostsFromThisShow.map(host =>
-            <div key={host.id} className="host">⭐ {host.name}</div>
+            <p key={host.id} className="host">⭐ {host.name}</p>
         )
     }
     const DisplayToListenEpisodes = () => {
         const toListenEpisodesFromThisShow = toListenShows.filter(show => show.spotifyShowId == selectedShow?.id)
         return toListenEpisodesFromThisShow.map(show =>
-            <div key={show.id} className="show">⭐ {show.name}</div>
+            <p key={show.id} className="show"><a href={`/episodeDetails/${show.spotifyEpisodeId}`}>⭐ {show.name}</a></p>
         )
     }
 
@@ -203,7 +212,9 @@ export const ShowDetails = () => {
             <p><b>Number of Episodes</b>: {selectedShow?.total_episodes}</p>
             <div className="savedEpisodes">
                 {toListenShows.find(show => show.spotifyShowId === selectedShow?.id) != undefined
-                    ? <DisplayToListenEpisodes />
+                    ? <><div><b>Episodes on To Listen list</b>:</div>
+                        <DisplayToListenEpisodes />
+                      </>
                     : ""
                 }
             </div>

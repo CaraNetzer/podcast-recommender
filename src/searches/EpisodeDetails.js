@@ -18,6 +18,14 @@ export const EpisodeDetails = () => {
                     setFavoriteHosts(hosts)
                 })
         }, [])
+    useEffect(
+        () => {
+            fetch('http://localhost:8088/shows?statusId=2')
+                .then(response => response.json())
+                .then(shows => {
+                    setToListenShows(shows)
+                })
+        }, [])
 
 
     const localUser = localStorage.getItem("app_user")
@@ -100,7 +108,7 @@ export const EpisodeDetails = () => {
     const [showHostFeild, setShowHostFeild] = useState(false)
     const showDiv = () => showHostFeild ? setShowHostFeild(false) : setShowHostFeild(true)
     const HostField = () => {
-        return <div class="input-group mb-3 host-field">
+        return <div className="input-group mb-3 host-field">
             <input type="text" className="form-control"
                 value={host}
                 onChange={(e) => { setHost(e.target.value) }}

@@ -20,7 +20,7 @@
       "userId": 1,
       "name": "Darknet Diaries",
       "img": "https://i.scdn.co/image/ab6765630000ba8a11874ad24c1dcac2ace8d4c9",
-      "statusId": 1,
+      "statusId": 3,
       "spotifyShowId": "4XPl3uEEL9hvqMkoZrzbx5",
       "publisher": "Jack Rhysider",
       "id": 40
@@ -74,15 +74,6 @@
     },
     {
       "userId": 1,
-      "name": "StraightioLab",
-      "img": "https://i.scdn.co/image/ab6765630000ba8a7a269aa660d64474bfcee8fa",
-      "statusId": 1,
-      "spotifyShowId": "4JwmzfCAD22229A7GJ81j1",
-      "publisher": "Big Money Players Network and iHeartPodcasts",
-      "id": 51
-    },
-    {
-      "userId": 1,
       "name": "Poog with Kate Berlant and Jacqueline Novak",
       "img": "https://i.scdn.co/image/ab6765630000ba8a2aeeded35d3d751dd8ba9aa3",
       "statusId": 1,
@@ -94,7 +85,7 @@
       "userId": 1,
       "name": "Lolita Podcast",
       "img": "https://i.scdn.co/image/ab6765630000ba8ada2863fbfccab2b5822a846e",
-      "statusId": 1,
+      "statusId": 3,
       "spotifyShowId": "4dvc06zTAaAylzdTrsgKzp",
       "publisher": "iHeartPodcasts",
       "id": 53
@@ -103,20 +94,96 @@
       "userId": 1,
       "name": "A Woman's Smile with Patti Harrison and Lorelei Ramirez",
       "img": "https://i.scdn.co/image/ab6765630000ba8a0a90d6a14e2bd83e3bafd7e5",
-      "statusId": 1,
+      "statusId": 3,
       "spotifyShowId": "60yZiznL2kNwoDJcGKqczq",
       "publisher": "Forever Dog",
       "id": 54
     },
     {
       "userId": 1,
-      "name": "\"The 2000's\" w/ Matt Rogers and Bowen Yang",
-      "img": "https://i.scdn.co/image/ab6765630000ba8ab0b0a62fc37b3f4e1b19b3db",
-      "statusId": 2,
+      "name": "StraightioLab",
+      "img": "https://i.scdn.co/image/ab6765630000ba8a7a269aa660d64474bfcee8fa",
+      "statusId": 1,
       "spotifyShowId": "4JwmzfCAD22229A7GJ81j1",
-      "spotifyEpisodeId": "40pwxhYoVnwSGJ9TpCtZ1n",
       "publisher": "Big Money Players Network and iHeartPodcasts",
-      "id": 55
+      "id": 56
+    },
+    {
+      "userId": 1,
+      "name": "Dolly Parton's America",
+      "img": "https://i.scdn.co/image/ab6765630000ba8a85156c983f0647d03c408514",
+      "statusId": 2,
+      "spotifyShowId": "0dfJjJyNxF9iW7zmBtLnBf",
+      "publisher": "WNYC Studios & OSM Audio ",
+      "id": 58
+    },
+    {
+      "userId": 1,
+      "name": "Tennessee Mountain Trance",
+      "img": "https://i.scdn.co/image/24be607e778f32d0c44dca4141c0a502c4d9a1d5",
+      "statusId": 2,
+      "spotifyShowId": "0dfJjJyNxF9iW7zmBtLnBf",
+      "spotifyEpisodeId": "3FRxGqonHxc88o8vPYrplJ",
+      "publisher": "WNYC Studios & OSM Audio ",
+      "id": 59
+    },
+    {
+      "userId": 1,
+      "name": "A Woman's Smile with Patti Harrison and Lorelei Ramirez",
+      "img": "https://i.scdn.co/image/ab6765630000ba8a0a90d6a14e2bd83e3bafd7e5",
+      "statusId": 1,
+      "spotifyShowId": "60yZiznL2kNwoDJcGKqczq",
+      "publisher": "Forever Dog",
+      "id": 60
+    },
+    {
+      "userId": 1,
+      "name": "A Woman’s Smile Is Sponsored",
+      "img": "https://i.scdn.co/image/ab6765630000ba8a7034efa3a5d82c486f9ea394",
+      "statusId": 2,
+      "spotifyShowId": "60yZiznL2kNwoDJcGKqczq",
+      "spotifyEpisodeId": "1IbJqXBhNbGaKtzCmMN0Da",
+      "publisher": "Forever Dog",
+      "id": 62
+    },
+    {
+      "userId": 1,
+      "name": "A Woman's Smile Is Stylish",
+      "img": "https://i.scdn.co/image/ab6765630000ba8af1d50a6e5e180e753186fa2c",
+      "statusId": 2,
+      "spotifyShowId": "60yZiznL2kNwoDJcGKqczq",
+      "spotifyEpisodeId": "1gCvvpbvt5mfpvk3lUakKZ",
+      "publisher": "Forever Dog",
+      "id": 63
+    },
+    {
+      "userId": 1,
+      "name": "“The Las Culturistas Culture Awards Nominees Are...\"",
+      "img": "https://i.scdn.co/image/ab6765630000ba8a2c4f54931749f8477cbfcba7",
+      "statusId": 2,
+      "spotifyShowId": "7ARINaz7N2ji2Q97MLjnCJ",
+      "spotifyEpisodeId": "6lzW7FMt7Cv87XppFtyVco",
+      "publisher": "Big Money Players Network and iHeartPodcasts",
+      "id": 64
+    },
+    {
+      "userId": 1,
+      "name": "Darknet Diaries",
+      "img": "https://i.scdn.co/image/ab6765630000ba8a11874ad24c1dcac2ace8d4c9",
+      "statusId": 1,
+      "spotifyShowId": "4XPl3uEEL9hvqMkoZrzbx5",
+      "publisher": "Jack Rhysider",
+      "id": 65
+    },
+    {
+      "userId": 1,
+      "name": "Meg Stalter",
+      "img": "https://i.scdn.co/image/ab6765630000ba8a479d90cc0d2301ec206d8285",
+      "statusId": 2,
+      "spotifyShowId": "2LtAZ9GFuxXdwmbIGZjoCl",
+      "spotifyEpisodeId": "65OrRHZbTDSTYpdW59sYJb",
+      "publisher": "Earwolf & Cameron Esposito",
+      "id": 66
     }
   ],
   "favoriteShowHosts": [
@@ -162,14 +229,6 @@
     },
     {
       "userId": 1,
-      "name": "George Civeris",
-      "statusId": 1,
-      "spotifyShowId": "4JwmzfCAD22229A7GJ81j1",
-      "showName": "StraightioLab",
-      "id": 10
-    },
-    {
-      "userId": 1,
       "name": "Sam Taggart",
       "statusId": 1,
       "spotifyShowId": "4JwmzfCAD22229A7GJ81j1",
@@ -191,6 +250,22 @@
       "spotifyShowId": "1RefFgQB4Lrl7qczcTWA3o",
       "showName": "You're Wrong About",
       "id": 13
+    },
+    {
+      "userId": 1,
+      "name": "Kate Berlant",
+      "statusId": 1,
+      "spotifyShowId": "0aF9EB1e73SmmWIrvC4I61",
+      "showName": "Poog with Kate Berlant and Jacqueline Novak",
+      "id": 14
+    },
+    {
+      "userId": 1,
+      "name": "Jacqueline Novak",
+      "statusId": 1,
+      "spotifyShowId": "0aF9EB1e73SmmWIrvC4I61",
+      "showName": "Poog with Kate Berlant and Jacqueline Novak",
+      "id": 15
     }
   ],
   "status": [
