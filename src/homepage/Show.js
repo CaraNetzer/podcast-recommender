@@ -37,11 +37,11 @@ export const Show = ({ show, setFavoriteShows }) => {
         </div>
         <div className="card-content">
             <div className="media">
-                <div className="media-left">
+                {/* <div className="media-left">
                     <figure className="image is-48x48">
                         <img src={show.img} alt="Placeholder image" />
                     </figure>
-                </div>
+                </div> */}
                 <div className="media-content">
                     <Link to={`/showDetails/${show.spotifyShowId}`}><h3 className="showName item">{show.name}</h3></Link>
                     <p className="subtitle">by {show.publisher}</p>

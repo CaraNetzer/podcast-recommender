@@ -29,7 +29,7 @@ export const Archive = () => {
 
     return <>
         <article className="archive">
-            <h2>Archived Shows</h2>
+            <h1>Archived Shows</h1>
             <article className="archived-shows">
 
                 {archive.map(show => <div key={show.id} className="card">

@@ -57,7 +57,7 @@ export const Homepage = () => {
         </article>
 
         <article className="favoriteHosts">
-            <h2>Favorite Hosts</h2>
+            <h1>Favorite Hosts</h1>
             <article className="favHostItems">
                 {
                     favoriteHosts.map(host => <Host key={`host--${host.id}`} host={host} selectedHosts={selectedHosts} setSelectedHosts={setSelectedHosts} setFavoriteHosts={setFavoriteHosts} favoriteHosts={favoriteHosts} />)
@@ -65,14 +65,14 @@ export const Homepage = () => {
             </article>
 
             {selectedHosts.length >= 2 
-                ? <button type="button" className="host-btn btn btn-outline-info" onClick={() => navigate(`/recommendations/${selectedHostsSearchTerm}`)}>Get Recommendations</button> 
+                ? <button type="button" className="host-rec-btn btn btn-outline-info" onClick={() => navigate(`/recommendations/${selectedHostsSearchTerm}`)}>Get Recommendations</button> 
                 : null
             }
 
         </article>
 
         <article className="toListen">
-            <h2>To Listen</h2>
+            <h1>To Listen</h1>
             <article className="toListenShows">
 
                 {

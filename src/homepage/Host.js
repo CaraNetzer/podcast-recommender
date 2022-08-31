@@ -41,7 +41,7 @@ export const Host = ({ host, setFavoriteHosts, selectedHosts, setSelectedHosts }
             </div>
             <div className="form-control hostText">
                 <h4 className="showhost">{host.name}</h4>
-                <button className="hostBtn btn btn-outline-danger btn-sm" onClick={() => handleDelete(host)}>Delete</button>
+                <button className="delete is-medium" onClick={() => handleDelete(host)}>Delete</button>
             </div>
         </div>
 }

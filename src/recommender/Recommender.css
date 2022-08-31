@@ -4,6 +4,7 @@
     text-align: center;
     padding-top: 3%;
 }
+
 .rec-results {
     width: 80%;
     padding: 1em;
@@ -20,4 +21,116 @@
 .result-number {
     padding-top: 6%;
     padding-left: 1%;
+}
+
+.rec-episode {
+    width: fit-content;
+    margin: auto;
+    margin-top: 5%;
+    border-radius: 5%;
+    color: white;
+    height: 3em;
+    position: relative;
+    width: 3em;
+    background-color: black;
+    box-shadow: 0 0.5em 1em -0.125em rgba(75, 75, 75, 0.5), 0 0 0 1px rgb(10 10 10 / 2%);
+}
+
+.rec-episodes {
+    display: flex;
+}
+
+#middleWebCircle {
+    width: fit-content;
+    margin-top: 165%;
+    border-radius: 50%;
+    color: black;
+    height: 12em;
+    position: relative;
+    width: 12em;
+    background-color: white;
+    box-shadow: 0 0.5em 1em -0.125em rgba(75, 75, 75, 0.5), 0 0 0 1px rgb(10 10 10 / 2%);
+}
+
+.sideWebCircle {
+    width: fit-content;
+    margin: auto;
+    margin-top: 20%;
+    border-radius: 50%;
+    color: black;
+    height: 10em;
+    position: relative;
+    width: 10em;
+    background-color: white;
+    box-shadow: 0 0.5em 1em -0.125em rgba(75, 75, 75, 0.5), 0 0 0 1px rgb(10 10 10 / 2%);
+    transition: .8s;
+}
+.sideWebCircle:hover {
+    transform: scale(1.15);
+    border-radius: 5%;
+    width: 350px;
+}
+
+.sideWebCircle:hover div.web-results {
+    display: inline;
+}
+.sideWebCircle:hover h3.other-host-name {
+    display: none;
+}
+
+.web-results {
+    display: none;
+}
+
+#selected-host-name {
+    fill: currentColor;
+    height: 50%;
+    left: 50%;
+    position: absolute;
+    stroke: currentColor;
+    stroke-width: 0;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    text-align: center;
+}
+
+
+.other-host-name {
+    fill: currentColor;
+    height: 50%;
+    left: 50%;
+    position: absolute;
+    stroke: currentColor;
+    stroke-width: 0;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    text-align: center;
+}
+
+.right-side {
+    margin-left: 20%;
+}
+.left-side {    
+    margin-right: 20%;
+}
+
+.web {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    margin: auto;
+    margin-bottom: 5%;
+}
+
+.pre-text {
+    width: fit-content;
+    margin: auto;
+    margin-top: 20%;
+}
+
+.rec-heading {
+    padding: 1%;
+    text-align: center;
 }

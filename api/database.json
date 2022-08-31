@@ -117,6 +117,24 @@
       "spotifyShowId": "0aF9EB1e73SmmWIrvC4I61",
       "publisher": "Big Money Players Network and iHeartPodcasts",
       "id": 52
+    },
+    {
+      "userId": 1,
+      "name": "Lolita Podcast",
+      "img": "https://i.scdn.co/image/ab6765630000ba8ada2863fbfccab2b5822a846e",
+      "statusId": 1,
+      "spotifyShowId": "4dvc06zTAaAylzdTrsgKzp",
+      "publisher": "iHeartPodcasts",
+      "id": 53
+    },
+    {
+      "userId": 1,
+      "name": "A Woman's Smile with Patti Harrison and Lorelei Ramirez",
+      "img": "https://i.scdn.co/image/ab6765630000ba8a0a90d6a14e2bd83e3bafd7e5",
+      "statusId": 1,
+      "spotifyShowId": "60yZiznL2kNwoDJcGKqczq",
+      "publisher": "Forever Dog",
+      "id": 54
     }
   ],
   "favoriteShowHosts": [
@@ -199,14 +217,6 @@
       "spotifyShowId": "1RefFgQB4Lrl7qczcTWA3o",
       "showName": "You're Wrong About",
       "id": 13
-    },
-    {
-      "userId": 1,
-      "name": "Jacqueline Novak",
-      "statusId": 1,
-      "spotifyShowId": "0QFo3FWLE0OcBXMG7dGH4h",
-      "showName": "Poog with Kate Berlant and Jacqueline Novak",
-      "id": 14
     }
   ],
   "status": [
