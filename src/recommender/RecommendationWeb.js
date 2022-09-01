@@ -196,23 +196,23 @@ export const RecommendationWeb = ({ access_token }) => {
                         <div className="web-results">
                             <h5 className="rec-heading">Recommended Episodes for: {host.name} and {selectedHost.name}</h5>
                             <div className="rec-episodes">
-                                <a href={`https://open.spotify.com/episode/${recommendedEpisodes.find(object => object.host === host.name)?.episodes[0].id}`}
+                                <a href={`https://open.spotify.com/episode/${recommendedEpisodes.find(object => object.host === host.name)?.episodes[0]?.id}`}
                                     className="rec-episode"
-                                    title={`Episode: ${recommendedEpisodes.find(object => object.host === host.name)?.episodes[0].name}`}
+                                    title={`Episode: ${recommendedEpisodes.find(object => object.host === host.name)?.episodes[0]?.name}`}
                                     target="_blank">
-                                    <img src={`${recommendedEpisodes.find(object => object.host === host.name)?.episodes[0]?.images[0].url}`} alt="#" />
+                                    <img src={`${recommendedEpisodes.find(object => object.host === host.name)?.episodes[0]?.images[0]?.url}`} alt="#" />
                                 </a>
-                                <a href={`https://open.spotify.com/episode/${recommendedEpisodes.find(object => object.host === host.name)?.episodes[1].id}`}
+                                <a href={`https://open.spotify.com/episode/${recommendedEpisodes.find(object => object.host === host.name)?.episodes[1]?.id}`}
                                     className="rec-episode"
-                                    title={`Episode: ${recommendedEpisodes.find(object => object.host === host.name)?.episodes[1].name}`}
+                                    title={`Episode: ${recommendedEpisodes.find(object => object.host === host.name)?.episodes[1]?.name}`}
                                     target="_blank">
-                                    <img src={`${recommendedEpisodes.find(object => object.host === host.name)?.episodes[1]?.images[0].url}`} alt="#" />
+                                    <img src={`${recommendedEpisodes.find(object => object.host === host.name)?.episodes[1]?.images[0]?.url}`} alt="#" />
                                 </a>
-                                <a href={`https://open.spotify.com/episode/${recommendedEpisodes.find(object => object.host === host.name)?.episodes[2].id}`}
+                                <a href={`https://open.spotify.com/episode/${recommendedEpisodes.find(object => object.host === host.name)?.episodes[2]?.id}`}
                                     className="rec-episode"
-                                    title={`Episode: ${recommendedEpisodes.find(object => object.host === host.name)?.episodes[2].name}`}
+                                    title={`Episode: ${recommendedEpisodes.find(object => object.host === host.name)?.episodes[2]?.name}`}
                                     target="_blank">
-                                    <img src={`${recommendedEpisodes.find(object => object.host === host.name)?.episodes[2]?.images[0].url}`} alt="#" />
+                                    <img src={`${recommendedEpisodes.find(object => object.host === host.name)?.episodes[2]?.images[0]?.url}`} alt="#" />
                                 </a>
                             </div>
                         </div>
@@ -235,23 +235,23 @@ export const RecommendationWeb = ({ access_token }) => {
                         <div className="web-results">
                             <h5 className="rec-heading">Recommended Episodes for: {host.name} and {selectedHost.name}</h5>
                             <div className="rec-episodes">
-                                <a href={`https://open.spotify.com/episode/${recommendedEpisodes.find(object => object.host === host.name)?.episodes[0].id}`}
+                                <a href={`https://open.spotify.com/episode/${recommendedEpisodes.find(object => object.host === host.name)?.episodes[0]?.id}`}
                                     className="rec-episode"
                                     title={`Episode: ${recommendedEpisodes.find(object => object.host === host.name)?.episodes[0]?.name}`}
                                     target="_blank">
-                                    <img src={`${recommendedEpisodes.find(object => object.host === host.name)?.episodes[0]?.images[0].url}`} alt="#" />
+                                    <img src={`${recommendedEpisodes.find(object => object.host === host.name)?.episodes[0]?.images[0]?.url}`} alt="#" />
                                 </a>
-                                <a href={`https://open.spotify.com/episode/${recommendedEpisodes.find(object => object.host === host.name)?.episodes[1].id}`}
+                                <a href={`https://open.spotify.com/episode/${recommendedEpisodes.find(object => object.host === host.name)?.episodes[1]?.id}`}
                                     className="rec-episode"
-                                    title={`Episode: ${recommendedEpisodes.find(object => object.host === host.name)?.episodes[1].name}`}
+                                    title={`Episode: ${recommendedEpisodes.find(object => object.host === host.name)?.episodes[1]?.name}`}
                                     target="_blank">
-                                    <img src={`${recommendedEpisodes.find(object => object.host === host.name)?.episodes[1]?.images[0].url}`} alt="#" />
+                                    <img src={`${recommendedEpisodes.find(object => object.host === host.name)?.episodes[1]?.images[0]?.url}`} alt="#" />
                                 </a>
-                                <a href={`https://open.spotify.com/episode/${recommendedEpisodes.find(object => object.host === host.name)?.episodes[2].id}`}
+                                <a href={`https://open.spotify.com/episode/${recommendedEpisodes.find(object => object.host === host.name)?.episodes[2]?.id}`}
                                     className="rec-episode"
-                                    title={`Episode: ${recommendedEpisodes.find(object => object.host === host.name)?.episodes[2].name}`}
+                                    title={`Episode: ${recommendedEpisodes.find(object => object.host === host.name)?.episodes[2]?.name}`}
                                     target="_blank">
-                                    <img src={`${recommendedEpisodes.find(object => object.host === host.name)?.episodes[2]?.images[0].url}`} alt="#" />
+                                    <img src={`${recommendedEpisodes.find(object => object.host === host.name)?.episodes[2]?.images[0]?.url}`} alt="#" />
                                 </a>
                             </div>
                         </div>
