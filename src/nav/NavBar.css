@@ -1,0 +1,82 @@
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    width: 100%;
+    background-color: #3A2E39;
+}
+.wholeNavBar {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
+
+.my-nav-link {
+    color: #d9d9d9;
+    display: block;
+    padding: .5rem 1rem;
+    text-decoration: none;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+}
+.my-nav-link:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.navbar__item {
+    flex-basis: 20%;
+    list-style-type: none;
+    border: 1px solid aliceblue;
+    border-radius: 30px;
+    padding: 0 3% 0;
+    text-align: center;
+    margin: 0 2%;
+    width: max-content;
+}
+
+.navbar__logout {
+    margin-left: auto;
+    color: #9a9d90;
+}
+.navbar__logout:hover {
+    color: #d9d9d9;
+}
+
+.navbar__login {
+    margin-left: auto;
+    color: #9a9d90;
+}
+
+.navbar-nav {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.active {
+    color: white;
+}
+
+.title {
+    padding: 0 5% 0 0;
+    color: white;
+    margin: .75rem 0;
+    font-size: xxx-large;
+}
+
+#spotifyNav {
+    padding: 0;
+    background-color: #1E555C;
+}
+
+#spotifyLogoutLink {
+    color: #d9d9d9;
+}
+#spotifyLogoutLink:hover {
+    color: white;
+}
+#spotifyLoginLink {
+    color: #d9d9d9;
+}
+#spotifyLoginLink:hover {
+    color: white;
+}
