@@ -73,15 +73,6 @@
     },
     {
       "userId": 1,
-      "name": "StraightioLab",
-      "img": "https://i.scdn.co/image/ab6765630000ba8a7a269aa660d64474bfcee8fa",
-      "statusId": 1,
-      "spotifyShowId": "4JwmzfCAD22229A7GJ81j1",
-      "publisher": "Big Money Players Network and iHeartPodcasts",
-      "id": 61
-    },
-    {
-      "userId": 1,
       "name": "Confronting Demons with Megan Stalter",
       "img": "https://i.scdn.co/image/ab6765630000ba8ac251dbce6b25d10d710cc491",
       "statusId": 2,
@@ -110,12 +101,31 @@
     },
     {
       "userId": 1,
+      "name": "She's Alive!",
+      "img": "https://i.scdn.co/image/e63af46a56352b37c4dc9164f1a76e9910f3c46f",
+      "statusId": 2,
+      "spotifyShowId": "0dfJjJyNxF9iW7zmBtLnBf",
+      "spotifyEpisodeId": "11d1JyLh7WiCGuBUnsSKgW",
+      "publisher": "WNYC Studios & OSM Audio ",
+      "id": 69
+    },
+    {
+      "userId": 1,
+      "name": "StraightioLab",
+      "img": "https://i.scdn.co/image/ab6765630000ba8a7a269aa660d64474bfcee8fa",
+      "statusId": 3,
+      "spotifyShowId": "4JwmzfCAD22229A7GJ81j1",
+      "publisher": "Big Money Players Network and iHeartPodcasts",
+      "id": 70
+    },
+    {
+      "userId": 1,
       "name": "Dolly Parton's America",
       "img": "https://i.scdn.co/image/ab6765630000ba8a85156c983f0647d03c408514",
       "statusId": 3,
       "spotifyShowId": "0dfJjJyNxF9iW7zmBtLnBf",
       "publisher": "WNYC Studios & OSM Audio ",
-      "id": 67
+      "id": 71
     },
     {
       "userId": 1,
@@ -125,17 +135,7 @@
       "spotifyShowId": "6BVpJ3TTdjnKbHTR4yBjBM",
       "spotifyEpisodeId": "0UmgjsnvSST9sdk92nhLVU",
       "publisher": "iHeartPodcasts",
-      "id": 68
-    },
-    {
-      "userId": 1,
-      "name": "She's Alive!",
-      "img": "https://i.scdn.co/image/e63af46a56352b37c4dc9164f1a76e9910f3c46f",
-      "statusId": 2,
-      "spotifyShowId": "0dfJjJyNxF9iW7zmBtLnBf",
-      "spotifyEpisodeId": "11d1JyLh7WiCGuBUnsSKgW",
-      "publisher": "WNYC Studios & OSM Audio ",
-      "id": 69
+      "id": 72
     }
   ],
   "favoriteShowHosts": [
