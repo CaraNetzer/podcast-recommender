@@ -146,7 +146,7 @@ export const ShowDetails = () => {
     }
 
     const addToFavoritesButton = () => {
-        console.log(favoriteShows)
+        console.log(selectedShow)
         if (favoriteShows.find(show => show.name === selectedShow?.name) == undefined) {
             return true
         } else {
@@ -198,15 +198,15 @@ export const ShowDetails = () => {
                 {selectedShow?.images?.length ? <img id="showImage" width="16%" src={selectedShow?.images[0].url} alt="" /> : <div>No Image</div>}
                 <div className="show-header-text">
                     <h1 className='showTitle'>{selectedShow?.name}</h1>
-
                     {addToFavoritesButton()
-                        ? <button className="btn btn-success" onClick={() => addToFavorites()}>Add To Favorites</button>
+                        ? <button className="btn btn-primary" onClick={() => addToFavorites()}>Add To Favorites</button>
                         : ""
                     }
                     {addToListenButton()
                         ? <button className="btn btn-warning" onClick={() => addToListen()}>+ To Listen</button>
                         : ""
                     }
+                    <a target="_blank" href={`${selectedShow?.external_urls?.spotify}`}><button className="btn btn-success">Listen on Spotify</button></a>
                 </div>
             </div>
             <p className="description"><b>Description</b>: {selectedShow?.description}</p>
@@ -215,7 +215,7 @@ export const ShowDetails = () => {
                 {toListenShows.find(show => show.spotifyShowId === selectedShow?.id) != undefined
                     ? <><div><b>Episodes on To Listen list</b>:</div>
                         <DisplayToListenEpisodes />
-                      </>
+                    </>
                     : ""
                 }
             </div>

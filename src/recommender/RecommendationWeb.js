@@ -26,12 +26,12 @@ export const RecommendationWeb = ({ access_token }) => {
         () => {
             console.log("refresh the page when recommended episodes changes")
             console.log(selectedHost.name)
+            /* console.log(recommendedEpisodes)
             const copy = [...recommendedEpisodes]
-            console.log(recommendedEpisodes)
             console.log(copy)
             console.log(copy.length)
             console.log(copy.find(object => object.host === `${selectedHost.name}`))
-            console.log(copy.find(object => object.host === "Sarah Marshall"))
+            console.log(copy.find(object => object.host === "Sarah Marshall")) */
             selectHost(selectedHost)
 
         },
@@ -39,8 +39,6 @@ export const RecommendationWeb = ({ access_token }) => {
 
     let recommended = []
     const getRecommendedEpisodes = (hostToSelect) => {
-
-
         for (const host of allHosts) {
             const searchQuery = `${hostToSelect.name} and ${host.name}`
             //console.log(searchQuery)
@@ -66,10 +64,10 @@ export const RecommendationWeb = ({ access_token }) => {
                         searchQ: searchQuery
                     })
                     setRecommendedEpisodes(recommended)
-                    console.log(recommended)
+                    /* console.log(recommended)
                     const copy = [...recommended]
                     console.log(copy)
-                    console.log(recommendedEpisodes)
+                    console.log(recommendedEpisodes) */
                 })
         }
     }
@@ -104,11 +102,11 @@ export const RecommendationWeb = ({ access_token }) => {
     useEffect(() => {
         console.log("is the page reloading?")
         console.log(recommendedEpisodes)
-        const copy = [...recommendedEpisodes]
+        /* const copy = [...recommendedEpisodes]
         console.log(copy)
         console.log(copy.length)
         console.log(copy.find(object => object.host === `${selectedHost.name}`))
-        console.log(copy.find(object => object.host === "Sarah Marshall"))
+        console.log(copy.find(object => object.host === "Sarah Marshall")) */
     }, [leftHosts, rightHosts])
 
 

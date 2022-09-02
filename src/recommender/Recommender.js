@@ -36,11 +36,14 @@ export const Recommender = ({ access_token }) => {
     const renderEpisodes = () => {
         return featuredEpisodes?.map(episode => (
             <div key={episode.id} className="result-number-section">
-                <h4 className="result-number">#{featuredEpisodes.indexOf(episode)+1}:</h4>
+                <h4 className="result-number">#{featuredEpisodes.indexOf(episode) + 1}:</h4>
                 <div className="searchResult" key={episode.id}>
 
                     {episode.images.length ? <img width="10%" src={episode.images[0].url} alt="" /> : <div>No Image</div>}
-                    <h4 key={episode.id} className='link'><Link to={`/episodeDetails/${episode.id}`}>{episode.name}</Link></h4>
+                    <div className="searchResultText">
+                        <h4 className='link'><Link to={`/episodeDetails/${episode.id}`}>{episode.name}</Link></h4>
+                        <p className='link'><b>Release Date</b>: {episode?.release_date}</p>
+                    </div>
                 </div>
             </div>
         ))

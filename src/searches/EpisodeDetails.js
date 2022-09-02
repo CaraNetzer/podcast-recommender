@@ -123,6 +123,7 @@ export const EpisodeDetails = () => {
     }
 
     const DisplayFavoriteHosts = () => {
+        console.log(selectedEpisode)
         const favHostsFromThisShow = favoriteHosts.filter(host => host.showName == selectedEpisode?.show?.name)
         return favHostsFromThisShow.map(host =>
             <div key={host?.id} className="host">⭐{host.name}</div>
@@ -141,10 +142,12 @@ export const EpisodeDetails = () => {
                         ? <button className="btn btn-warning" onClick={() => addToListen()}>+ To Listen</button>
                         : ""
                     }
+                    <a target="_blank" href={`${selectedEpisode?.external_urls?.spotify}`}><button className="btn btn-success">Listen on Spotify</button></a>
                 </div>
             </div>
 
             <p className="description"><b>Episode Description</b>: {selectedEpisode?.description}</p>
+            <p><b>Release Date</b>: {selectedEpisode?.release_date}</p>
             <div><b>Hosts</b>:</div>
             <div className="hosts">
                 {favoriteHosts.find(host => host.showName === selectedEpisode?.show?.name) != undefined

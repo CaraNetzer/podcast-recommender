@@ -89,7 +89,10 @@ export const SearchShows = ({ access_token }) => {
         return sortedEpisodes.map(episode => (
             <div className="searchResult" key={episode.id}>
                 {episode.images.length ? <img width="10%" src={episode.images[0].url} alt="" /> : <div>No Image</div>}
-                <h4 className='link'><Link to={`/episodeDetails/${episode.id}`}>{episode.name}</Link></h4>
+                <div className="searchResultText">
+                    <h4 className='link'><Link to={`/episodeDetails/${episode.id}`}>{episode.name}</Link></h4>
+                    <p className='link'><b>Release Date</b>: {episode?.release_date}</p>
+                </div>
             </div>
         ))
     }
@@ -101,7 +104,7 @@ export const SearchShows = ({ access_token }) => {
 
                 {access_token
                     ? <form onSubmit={(e) => search(e)}>
-                        <input size={40} placeholder="Search for a topic, show, or person"  className=" form-control mr-sm-2" type="text" onChange={event => setSearchTerm(event.target.value)} aria-label="Search" />
+                        <input size={40} placeholder="Search for a topic, show, or person" className=" form-control mr-sm-2" type="text" onChange={event => setSearchTerm(event.target.value)} aria-label="Search" />
                         <button className="btn btn-outline-success my-2 my-sm-0 search-btn" type="submit">Search</button>
                     </form>
                     : <h2>Please log in</h2>
