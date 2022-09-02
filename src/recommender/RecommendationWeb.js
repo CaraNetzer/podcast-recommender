@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from "react"
+import { SideWebCircle } from "./SideWebCircle"
 
 export const RecommendationWeb = ({ access_token }) => {
     const [allHosts, getAllHosts] = useState([])
@@ -191,32 +192,7 @@ export const RecommendationWeb = ({ access_token }) => {
         <div className="web">
             <div className="left-side">
                 {selectedHost != ""
-                    ? leftHosts.map(host => <div key={host.id} className="sideWebCircle">
-                        <h3 className="other-host-name">{host.name}</h3>
-                        <div className="web-results">
-                            <h5 className="rec-heading">Recommended Episodes for: {host.name} and {selectedHost.name}</h5>
-                            <div className="rec-episodes">
-                                <a href={`https://open.spotify.com/episode/${recommendedEpisodes.find(object => object.host === host.name)?.episodes[0]?.id}`}
-                                    className="rec-episode"
-                                    title={`Episode: ${recommendedEpisodes.find(object => object.host === host.name)?.episodes[0]?.name}`}
-                                    target="_blank">
-                                    <img src={`${recommendedEpisodes.find(object => object.host === host.name)?.episodes[0]?.images[0]?.url}`} alt="#" />
-                                </a>
-                                <a href={`https://open.spotify.com/episode/${recommendedEpisodes.find(object => object.host === host.name)?.episodes[1]?.id}`}
-                                    className="rec-episode"
-                                    title={`Episode: ${recommendedEpisodes.find(object => object.host === host.name)?.episodes[1]?.name}`}
-                                    target="_blank">
-                                    <img src={`${recommendedEpisodes.find(object => object.host === host.name)?.episodes[1]?.images[0]?.url}`} alt="#" />
-                                </a>
-                                <a href={`https://open.spotify.com/episode/${recommendedEpisodes.find(object => object.host === host.name)?.episodes[2]?.id}`}
-                                    className="rec-episode"
-                                    title={`Episode: ${recommendedEpisodes.find(object => object.host === host.name)?.episodes[2]?.name}`}
-                                    target="_blank">
-                                    <img src={`${recommendedEpisodes.find(object => object.host === host.name)?.episodes[2]?.images[0]?.url}`} alt="#" />
-                                </a>
-                            </div>
-                        </div>
-                    </div>)
+                    ? leftHosts.map(host => <SideWebCircle key={host.id} host={host} selectedHost={selectedHost} recommendedEpisodes={recommendedEpisodes} />)
                     : ""
                 }
             </div>
@@ -230,32 +206,7 @@ export const RecommendationWeb = ({ access_token }) => {
             </div>
             <div className="right-side">
                 {selectedHost != ""
-                    ? rightHosts.map(host => <div key={host.id} className="sideWebCircle">
-                        <h3 className="other-host-name">{host.name}</h3>
-                        <div className="web-results">
-                            <h5 className="rec-heading">Recommended Episodes for: {host.name} and {selectedHost.name}</h5>
-                            <div className="rec-episodes">
-                                <a href={`https://open.spotify.com/episode/${recommendedEpisodes.find(object => object.host === host.name)?.episodes[0]?.id}`}
-                                    className="rec-episode"
-                                    title={`Episode: ${recommendedEpisodes.find(object => object.host === host.name)?.episodes[0]?.name}`}
-                                    target="_blank">
-                                    <img src={`${recommendedEpisodes.find(object => object.host === host.name)?.episodes[0]?.images[0]?.url}`} alt="#" />
-                                </a>
-                                <a href={`https://open.spotify.com/episode/${recommendedEpisodes.find(object => object.host === host.name)?.episodes[1]?.id}`}
-                                    className="rec-episode"
-                                    title={`Episode: ${recommendedEpisodes.find(object => object.host === host.name)?.episodes[1]?.name}`}
-                                    target="_blank">
-                                    <img src={`${recommendedEpisodes.find(object => object.host === host.name)?.episodes[1]?.images[0]?.url}`} alt="#" />
-                                </a>
-                                <a href={`https://open.spotify.com/episode/${recommendedEpisodes.find(object => object.host === host.name)?.episodes[2]?.id}`}
-                                    className="rec-episode"
-                                    title={`Episode: ${recommendedEpisodes.find(object => object.host === host.name)?.episodes[2]?.name}`}
-                                    target="_blank">
-                                    <img src={`${recommendedEpisodes.find(object => object.host === host.name)?.episodes[2]?.images[0]?.url}`} alt="#" />
-                                </a>
-                            </div>
-                        </div>
-                    </div>)
+                    ? rightHosts.map(host => <SideWebCircle key={host.id} host={host} selectedHost={selectedHost} recommendedEpisodes={recommendedEpisodes} />)
                     : ""
                 }
             </div>
