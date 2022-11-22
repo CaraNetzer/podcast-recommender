@@ -1,4 +1,4 @@
-This project was made using the mock-api JSON-Server. To run this app, clone the repository, run the command `npm install` from the directory. Once that is done, run `npm start` and register or log in to the app. You will also be prompted to log in with a spotify account.
+This project was made using the mock-api JSON-Server. To run this app, clone the repository, run the command `npm install` from the root directory. Once that is done, run `npm start` and register or log in to the app. You will also be prompted to log in with a spotify account.
 
 More information about React commands below:
 
