@@ -7,41 +7,34 @@ export const RecommendationWeb = ({ access_token }) => {
     const [selectedHost, setSelectedHost] = useState("")
     const [recommendedEpisodes, setRecommendedEpisodes] = useState([])
 
+
+    useEffect(() => {
+        fetch('http://localhost:8088/favoriteHosts')
+            .then(response => response.json())
+            .then(hosts => {
+                getAllHosts(hosts)
+                setNumOfHosts(hosts.length)
+            })
+    }, [])
+    
+
     let firstPageLoad = useRef(true)
-    //console.log(firstPageLoad)
 
-    useEffect(
-        () => {
-            //console.log("im here")
-            if (firstPageLoad.current) {
-                firstPageLoad.current = false
-            } else {
-                getRecommendedEpisodes(selectedHost)
-                //selectHost(selectedHost)
-                firstPageLoad.current = false
-            }
-        }, [selectedHost])
+    useEffect(() => {
+        if (firstPageLoad.current) {
+            firstPageLoad.current = false
+        } else {
+            getRecommendedEpisodes(selectedHost)
+            firstPageLoad.current = false
+        }
+    }, [selectedHost])
 
-    useEffect(
-        () => {
-            console.log("refresh the page when recommended episodes changes")
-            console.log(selectedHost.name)
-            /* console.log(recommendedEpisodes)
-            const copy = [...recommendedEpisodes]
-            console.log(copy)
-            console.log(copy.length)
-            console.log(copy.find(object => object.host === `${selectedHost.name}`))
-            console.log(copy.find(object => object.host === "Sarah Marshall")) */
-            selectHost(selectedHost)
-
-        },
-        [recommendedEpisodes])
 
     let recommended = []
     const getRecommendedEpisodes = (hostToSelect) => {
         for (const host of allHosts) {
             const searchQuery = `${hostToSelect.name} and ${host.name}`
-            //console.log(searchQuery)
+            console.log(searchQuery)
 
             const searchEpisodesUrl = new URL("https://api.spotify.com/v1/search")
             const searchEpisodeParams = {
@@ -64,24 +57,14 @@ export const RecommendationWeb = ({ access_token }) => {
                         searchQ: searchQuery
                     })
                     setRecommendedEpisodes(recommended)
-                    /* console.log(recommended)
-                    const copy = [...recommended]
-                    console.log(copy)
-                    console.log(recommendedEpisodes) */
-                })
+                    
+                }).then(() => splitHosts(selectedHost))
+                //this was the problem with loading the episodes -- it wasn't waiting until recommended episodes was done 
+                //before splitting the hosts, I had it in a useEffect for when recommended episodes changed, but I needed it to be
+                //in a promise here instead
         }
     }
 
-
-    useEffect(
-        () => {
-            fetch('http://localhost:8088/favoriteHosts')
-                .then(response => response.json())
-                .then(hosts => {
-                    getAllHosts(hosts)
-                    setNumOfHosts(hosts.length)
-                })
-        }, [])
 
     const [leftHosts, setLeftHosts] = useState([])
     const [rightHosts, setRightHosts] = useState([])
@@ -99,85 +82,6 @@ export const RecommendationWeb = ({ access_token }) => {
         }
     }
 
-    useEffect(() => {
-        console.log("is the page reloading?")
-        console.log(recommendedEpisodes)
-        /* const copy = [...recommendedEpisodes]
-        console.log(copy)
-        console.log(copy.length)
-        console.log(copy.find(object => object.host === `${selectedHost.name}`))
-        console.log(copy.find(object => object.host === "Sarah Marshall")) */
-    }, [leftHosts, rightHosts])
-
-
-    /* const fillWeb = (hostToSelect) => {
-        LeftHTML = leftHosts.map(host => `<div class="sideWebCircle">
-            <h3 class="other-host-name">${host.name}</h3>
-            <div class="web-results">
-                <h5 class="rec-heading">Recommended Episodes for: ${host.name} and ${hostToSelect.name}</h5>
-                <div class="rec-episodes">
-                    <a href="https://open.spotify.com/episode/${recommendedEpisodes.find(object => object.host === host.name)?.episodes[0].id}" 
-                        class="rec-episode" 
-                        title="Episode: ${recommendedEpisodes.find(object => object.host === host.name)?.episodes[0].name}" 
-                        target="_blank">
-                        <img src="${recommendedEpisodes.find(object => object.host === host.name)?.episodes[0].images[0].url}" alt="#" />
-                    </a>
-                    <a href="https://open.spotify.com/episode/${recommendedEpisodes.find(object => object.host === host.name)?.episodes[1].id}" 
-                        class="rec-episode" 
-                        title="Episode: ${recommendedEpisodes.find(object => object.host === host.name)?.episodes[1].name}" 
-                        target="_blank">
-                        <img src="${recommendedEpisodes.find(object => object.host === host.name)?.episodes[1].images[0].url}" alt="#" />
-                    </a>
-                    <a href="https://open.spotify.com/episode/${recommendedEpisodes.find(object => object.host === host.name)?.episodes[2].id}" 
-                        class="rec-episode" 
-                        title="Episode: ${recommendedEpisodes.find(object => object.host === host.name)?.episodes[2].name}" 
-                        target="_blank">
-                        <img src="${recommendedEpisodes.find(object => object.host === host.name)?.episodes[2].images[0].url}" alt="#" />
-                    </a>
-                </div>    
-                </div>
-        </div>`)
-
-        RightHTML = rightHosts.map(host => `<div class="sideWebCircle">
-            <h3 class="other-host-name">${host.name}</h3>
-            <div class="web-results">
-                <h5 class="rec-heading">Recommended Episodes for: ${host.name} and ${selectedHost.name}</h5>
-                <div class="rec-episodes">
-                    <a href="https://open.spotify.com/episode/${recommendedEpisodes.find(object => object.host === host.name)?.episodes[0].id}" 
-                        class="rec-episode" 
-                        title="Episode: ${recommendedEpisodes.find(object => object.host === host.name)?.episodes[0].name}" 
-                        target="_blank">
-                        <img src="${recommendedEpisodes.find(object => object.host === host.name)?.episodes[0].images[0].url}" alt="#" />
-                    </a>
-                    <a href="https://open.spotify.com/episode/${recommendedEpisodes.find(object => object.host === host.name)?.episodes[1].id}" 
-                        class="rec-episode" 
-                        title="Episode: ${recommendedEpisodes.find(object => object.host === host.name)?.episodes[1].name}" 
-                        target="_blank">
-                        <img src="${recommendedEpisodes.find(object => object.host === host.name)?.episodes[1].images[0].url}" alt="#" />
-                    </a>
-                    <a href="https://open.spotify.com/episode/${recommendedEpisodes.find(object => object.host === host.name)?.episodes[2].id}" 
-                        class="rec-episode" 
-                        title="Episode: ${recommendedEpisodes.find(object => object.host === host.name)?.episodes[2].name}" 
-                        target="_blank">
-                        <img src="${recommendedEpisodes.find(object => object.host === host.name)?.episodes[2].images[0].url}" alt="#" />
-                    </a>
-                </div> 
-            </div>
-        </div>`)
-
-        MiddleCircleHTML = `<div id="middleWebCircle">
-                <h3 id="selected-host-name">${selectedHost?.name}</h3>
-            </div>`
-        
-        document.querySelector(".left-side").innerHTML = leftHTML.join("")
-        document.querySelector(".right-side").innerHTML = rightHTML.join("")
-    } */
-
-    const selectHost = (hostToSelect) => {
-        splitHosts(hostToSelect)
-        //fillWeb(selectedHost)
-    }
-
     return <>
         <nav className="navbar navbar-light">
             {allHosts?.map(host =>
@@ -189,13 +93,13 @@ export const RecommendationWeb = ({ access_token }) => {
         </nav>
         <div className="web">
             <div className="left-side">
-                {selectedHost != ""
+                {selectedHost != "" && leftHosts != []
                     ? leftHosts.map(host => <SideWebCircle key={host.id} host={host} selectedHost={selectedHost} recommendedEpisodes={recommendedEpisodes} />)
                     : ""
                 }
             </div>
             <div className="middleCircle">
-                {selectedHost != ""
+                {selectedHost != "" 
                     ? <div id="middleWebCircle">
                         <h3 id="selected-host-name">{selectedHost?.name}</h3>
                     </div>
@@ -203,7 +107,7 @@ export const RecommendationWeb = ({ access_token }) => {
                 }
             </div>
             <div className="right-side">
-                {selectedHost != ""
+                {selectedHost != "" && rightHosts.length  != []
                     ? rightHosts.map(host => <SideWebCircle key={host.id} host={host} selectedHost={selectedHost} recommendedEpisodes={recommendedEpisodes} />)
                     : ""
                 }
