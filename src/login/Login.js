@@ -32,21 +32,23 @@ export const Login = () => {
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
                     <h1>Podcast Recommender</h1>
-                    <h2>Please sign in</h2>
-                    <fieldset>
-                        <label htmlFor="inputEmail"> Email address </label>
-                        <input type="email"
-                            value={email}
-                            onChange={evt => set(evt.target.value)}
-                            className="form-control"
-                            placeholder="Email address"
-                            required autoFocus />
-                    </fieldset>
-                    <fieldset>
-                        <button type="submit">
-                            Sign in
-                        </button>
-                    </fieldset>
+                    <div id="form">
+
+                        <h2>Please sign in</h2>
+                        <fieldset id="email-input">
+                            <input type="email"
+                                value={email}
+                                onChange={evt => set(evt.target.value)}
+                                className="login-form-control"
+                                placeholder="Email address"
+                                required autoFocus />
+                        </fieldset>
+                        <fieldset>
+                            <button type="submit">
+                                Sign in
+                            </button>
+                        </fieldset>
+                    </div>
                 </form>
             </section>
             <section className="link--register">

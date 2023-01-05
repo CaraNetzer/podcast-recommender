@@ -18,80 +18,6 @@
     },
     {
       "userId": 1,
-      "name": "A Woman's Smile with Patti Harrison and Lorelei Ramirez",
-      "img": "https://i.scdn.co/image/ab6765630000ba8a0a90d6a14e2bd83e3bafd7e5",
-      "statusId": 2,
-      "spotifyShowId": "60yZiznL2kNwoDJcGKqczq",
-      "publisher": "Forever Dog",
-      "id": 49
-    },
-    {
-      "userId": 1,
-      "name": "Rabbit Hole",
-      "img": "https://i.scdn.co/image/9c14b425803662286c88d8ac0826789cf6e7887b",
-      "statusId": 2,
-      "spotifyShowId": "6dqqC8nkBTC3ldRs7pP4qn",
-      "publisher": "The New York Times",
-      "id": 50
-    },
-    {
-      "userId": 1,
-      "name": "Tennessee Mountain Trance",
-      "img": "https://i.scdn.co/image/24be607e778f32d0c44dca4141c0a502c4d9a1d5",
-      "statusId": 2,
-      "spotifyShowId": "0dfJjJyNxF9iW7zmBtLnBf",
-      "spotifyEpisodeId": "3FRxGqonHxc88o8vPYrplJ",
-      "publisher": "WNYC Studios & OSM Audio ",
-      "id": 56
-    },
-    {
-      "userId": 1,
-      "name": "Lolita Podcast",
-      "img": "https://i.scdn.co/image/ab6765630000ba8ada2863fbfccab2b5822a846e",
-      "statusId": 3,
-      "spotifyShowId": "4dvc06zTAaAylzdTrsgKzp",
-      "publisher": "iHeartPodcasts",
-      "id": 58
-    },
-    {
-      "userId": 1,
-      "name": "Darknet Diaries",
-      "img": "https://i.scdn.co/image/ab6765630000ba8a11874ad24c1dcac2ace8d4c9",
-      "statusId": 1,
-      "spotifyShowId": "4XPl3uEEL9hvqMkoZrzbx5",
-      "publisher": "Jack Rhysider",
-      "id": 59
-    },
-    {
-      "userId": 1,
-      "name": "You're Wrong About",
-      "img": "https://i.scdn.co/image/ab6765630000ba8a557189992ebf2260823e4dff",
-      "statusId": 1,
-      "spotifyShowId": "1RefFgQB4Lrl7qczcTWA3o",
-      "publisher": "Sarah Marshall",
-      "id": 60
-    },
-    {
-      "userId": 1,
-      "name": "Confronting Demons with Megan Stalter",
-      "img": "https://i.scdn.co/image/ab6765630000ba8ac251dbce6b25d10d710cc491",
-      "statusId": 2,
-      "spotifyShowId": "1eGXNBm5WN6u6Ml71dnPnV",
-      "publisher": "Headgum",
-      "id": 62
-    },
-    {
-      "userId": 1,
-      "name": "You, Me and Duprie: Part 1 (w/ Joe Castle Baker)",
-      "img": "https://i.scdn.co/image/ab6765630000ba8ac251dbce6b25d10d710cc491",
-      "statusId": 2,
-      "spotifyShowId": "1eGXNBm5WN6u6Ml71dnPnV",
-      "spotifyEpisodeId": "30hCkqFoZFcxuBl1Jnepep",
-      "publisher": "Headgum",
-      "id": 63
-    },
-    {
-      "userId": 1,
       "name": "Scam Goddess",
       "img": "https://i.scdn.co/image/ab6765630000ba8a9d131cbd7a36fdaa6f7b39e9",
       "statusId": 3,
@@ -101,41 +27,117 @@
     },
     {
       "userId": 1,
-      "name": "She's Alive!",
-      "img": "https://i.scdn.co/image/e63af46a56352b37c4dc9164f1a76e9910f3c46f",
-      "statusId": 2,
-      "spotifyShowId": "0dfJjJyNxF9iW7zmBtLnBf",
-      "spotifyEpisodeId": "11d1JyLh7WiCGuBUnsSKgW",
-      "publisher": "WNYC Studios & OSM Audio ",
-      "id": 69
-    },
-    {
-      "userId": 1,
-      "name": "StraightioLab",
-      "img": "https://i.scdn.co/image/ab6765630000ba8a7a269aa660d64474bfcee8fa",
-      "statusId": 3,
-      "spotifyShowId": "4JwmzfCAD22229A7GJ81j1",
-      "publisher": "Big Money Players Network and iHeartPodcasts",
-      "id": 70
-    },
-    {
-      "userId": 1,
       "name": "Dolly Parton's America",
       "img": "https://i.scdn.co/image/ab6765630000ba8a85156c983f0647d03c408514",
-      "statusId": 3,
+      "statusId": 1,
       "spotifyShowId": "0dfJjJyNxF9iW7zmBtLnBf",
       "publisher": "WNYC Studios & OSM Audio ",
-      "id": 71
+      "id": 74
     },
     {
       "userId": 1,
-      "name": "10 Things I Hate About You with Laci Mosley",
-      "img": "https://i.scdn.co/image/ab6765630000ba8a58aab61f5a138f48cc644aca",
+      "name": "Casper w. Jamie Loftus",
+      "img": "https://i.scdn.co/image/ab6765630000ba8a95cbc35e7ca16c4b32e86a42",
       "statusId": 2,
-      "spotifyShowId": "6BVpJ3TTdjnKbHTR4yBjBM",
-      "spotifyEpisodeId": "0UmgjsnvSST9sdk92nhLVU",
+      "spotifyShowId": "3hOk6wfvNsbPQNdjHFF8Vm",
+      "spotifyEpisodeId": "0VUZd9Fi7KHGhqGf3Scz1f",
+      "publisher": "Sarah Marshall + Alex Steed",
+      "id": 75
+    },
+    {
+      "userId": 1,
+      "name": "You Are Good",
+      "img": "https://i.scdn.co/image/ab6765630000ba8a95cbc35e7ca16c4b32e86a42",
+      "statusId": 1,
+      "spotifyShowId": "3hOk6wfvNsbPQNdjHFF8Vm",
+      "publisher": "Sarah Marshall + Alex Steed",
+      "id": 76
+    },
+    {
+      "userId": 1,
+      "name": "Normal Gossip",
+      "img": "https://i.scdn.co/image/ab6765630000ba8a6dce46602cbfb7f5374b413f",
+      "statusId": 1,
+      "spotifyShowId": "0KVZ16mLZ1bbNlnKemYTzm",
+      "publisher": "Normal Gossip",
+      "id": 77
+    },
+    {
+      "userId": 1,
+      "name": "Tennessee Mountain Trance",
+      "img": "https://i.scdn.co/image/24be607e778f32d0c44dca4141c0a502c4d9a1d5",
+      "statusId": 2,
+      "spotifyShowId": "0dfJjJyNxF9iW7zmBtLnBf",
+      "spotifyEpisodeId": "3FRxGqonHxc88o8vPYrplJ",
+      "publisher": "WNYC Studios & OSM Audio ",
+      "id": 78
+    },
+    {
+      "userId": 1,
+      "name": "1: Dolores, Not Lolita",
+      "img": "https://i.scdn.co/image/ab6765630000ba8ada2863fbfccab2b5822a846e",
+      "statusId": 2,
+      "spotifyShowId": "4dvc06zTAaAylzdTrsgKzp",
+      "spotifyEpisodeId": "5EalMToWNZwcEpw0Cbc4A3",
       "publisher": "iHeartPodcasts",
-      "id": 72
+      "id": 80
+    },
+    {
+      "userId": 1,
+      "name": "Song Exploder",
+      "img": "https://i.scdn.co/image/2ef092cf991c2685ebb61b98f6dd000dfee66196",
+      "statusId": 1,
+      "spotifyShowId": "10lMwCjvzLCLwth2AW6cLG",
+      "publisher": "Hrishikesh Hirway",
+      "id": 81
+    },
+    {
+      "userId": 1,
+      "name": "Home Cooking",
+      "img": "https://i.scdn.co/image/5c8591621946efd566e364e1a0ddd8f559ee0bd1",
+      "statusId": 1,
+      "spotifyShowId": "1K6SiDxdGacAmhMQIvdJUL",
+      "publisher": "Samin Nosrat & Hrishikesh Hirway",
+      "id": 82
+    },
+    {
+      "userId": 1,
+      "name": "Starch Nemesis (with Waffles & Mochi)",
+      "img": "https://i.scdn.co/image/ab6765630000ba8a12f88fd9371c870c8ef9d835",
+      "statusId": 2,
+      "spotifyShowId": "1K6SiDxdGacAmhMQIvdJUL",
+      "spotifyEpisodeId": "0hJiHeVf41dew1IxZCNQlC",
+      "publisher": "Samin Nosrat & Hrishikesh Hirway",
+      "id": 83
+    },
+    {
+      "userId": 1,
+      "name": "Three: Mirror Image",
+      "img": "https://i.scdn.co/image/9c14b425803662286c88d8ac0826789cf6e7887b",
+      "statusId": 2,
+      "spotifyShowId": "6dqqC8nkBTC3ldRs7pP4qn",
+      "spotifyEpisodeId": "1wlZzEe7nbe6AYUKJVogOg",
+      "publisher": "The New York Times",
+      "id": 86
+    },
+    {
+      "userId": 1,
+      "name": "Rabbit Hole",
+      "img": "https://i.scdn.co/image/9c14b425803662286c88d8ac0826789cf6e7887b",
+      "statusId": 3,
+      "spotifyShowId": "6dqqC8nkBTC3ldRs7pP4qn",
+      "publisher": "The New York Times",
+      "id": 87
+    },
+    {
+      "userId": 1,
+      "name": "Beanie Babies with Jamie Loftus",
+      "img": "https://i.scdn.co/image/ab6765630000ba8a557189992ebf2260823e4dff",
+      "statusId": 2,
+      "spotifyShowId": "1RefFgQB4Lrl7qczcTWA3o",
+      "spotifyEpisodeId": "0fPjy0yr6ytkjy2mKAjhaO",
+      "publisher": "Sarah Marshall",
+      "id": 88
     }
   ],
   "favoriteShowHosts": [
@@ -218,6 +220,14 @@
       "spotifyShowId": "0dfJjJyNxF9iW7zmBtLnBf",
       "showName": "Dolly Parton's America",
       "id": 15
+    },
+    {
+      "userId": 1,
+      "name": "Kevin Roose",
+      "statusId": 1,
+      "spotifyShowId": "6dqqC8nkBTC3ldRs7pP4qn",
+      "showName": "Rabbit Hole",
+      "id": 16
     }
   ],
   "status": [
