@@ -1,3 +1,7 @@
+This project was made using the mock-api, JSON-Server. To run this app, clone the repository, run the command `npm install` from the root directory, `podcast-recommender`. Once that is done, run `npm start` and register or log in to the app. From the api folder, run `npm install -g json-server`. When that install is done run `json-server -p 8088 database.json`. JSON-server will need to be running at the same time as npm. You will also need to log in with a spotify account once you log into the app (runs best when you log in to spotify in another tab, then the app will just ask for permission to access your spotify account).
+
+More information about React commands below:
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
